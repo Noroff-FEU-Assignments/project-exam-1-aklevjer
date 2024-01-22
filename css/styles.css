@@ -1,0 +1,49 @@
+/* ------------- Global Variables ------------- */
+
+:root {
+  --clr-white: #ffffff;
+  --clr-black: #000000;
+  --clr-deep-black: #111111;
+  --clr-dark-gray: #1b1b1b;
+  --clr-gray: #393939;
+  --clr-light-gray: #fafafa;
+  --clr-light-orange: #f68a50;
+  --clr-dark-orange: #9d3700;
+  --clr-red: #b50000;
+
+  --clr-dark-shadow: rgba(0, 0, 0, 0.9);
+  --clr-medium-shadow: rgba(0, 0, 0, 0.7);
+  --clr-light-shadow: rgba(0, 0, 0, 0.1);
+
+  --ff-primary: "Nunito Sans", Helvetica, Verdana, sans-serif;
+  --ff-secondary: "Source Sans 3", Arial, Verdana, sans-serif;
+
+  --fs-small: 1rem;
+  --fs-normal: 1.0625rem;
+  --fs-medium: 1.2rem;
+  --fs-large: 1.3rem;
+  --fs-xl: 1.6rem;
+  --fs-xxl: 1.9rem;
+  --fs-xxxl: 2.4rem;
+
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  --space-0-3: 0.3rem;
+  --space-0-5: 0.5rem;
+  --space-1: 1rem;
+  --space-1-5: 1.5rem;
+  --space-2: 2rem;
+  --space-2-5: 2.5rem;
+  --space-3: 3rem;
+
+  --border-radius: 5px;
+
+  --tr-linear: 125ms linear;
+  --tr-ease-in-out: 300ms ease-in-out;
+
+  --max-width: 1150px;
+  --screen-edge: var(--space-1);
+  --height-header: 70px;
+}
