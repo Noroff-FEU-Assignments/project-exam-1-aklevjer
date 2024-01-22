@@ -246,6 +246,10 @@ label {
   font-size: var(--fs-small);
 }
 
+.required-field {
+  color: var(--clr-red);
+}
+
 .rounded-corners {
   border-radius: var(--border-radius);
 }
@@ -255,20 +259,16 @@ label {
   border-bottom: 1px solid var(--clr-deep-black);
 }
 
-.truncate-text {
-  display: -webkit-box;
-  -webkit-line-clamp: var(--max-lines, 2);
-  -webkit-box-orient: vertical;
-}
-
-.truncate-text,
 .overflow-hidden,
+.truncate-text,
 .sr-only {
   overflow: hidden;
 }
 
-.required-field {
-  color: var(--clr-red);
+.truncate-text {
+  display: -webkit-box;
+  -webkit-line-clamp: var(--max-lines, 2);
+  -webkit-box-orient: vertical;
 }
 
 .sr-only {
