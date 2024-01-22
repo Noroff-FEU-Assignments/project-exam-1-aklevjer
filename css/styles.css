@@ -392,6 +392,24 @@ header {
   visibility: visible;
 }
 
+/* -------------- Instagram Feed -------------- */
+
+.instagram-feed {
+  grid-template: 1fr repeat(7, 0) / repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.instagram-feed .bxl-instagram {
+  inset: 0;
+  opacity: 0;
+  color: var(--clr-white);
+  transition: opacity var(--tr-ease-in-out);
+  background-color: var(--clr-medium-shadow);
+}
+
+.instagram-feed__link:is(:hover, :focus) .bxl-instagram {
+  opacity: 1;
+}
+
 /* ------------------ Footer ------------------ */
 
 footer {
