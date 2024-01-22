@@ -246,6 +246,10 @@ label {
   font-size: var(--fs-small);
 }
 
+.text-short {
+  max-width: 45ch;
+}
+
 .required-field {
   color: var(--clr-red);
 }
@@ -392,6 +396,29 @@ header {
   visibility: visible;
 }
 
+/* ---------------- Page Hero's --------------- */
+
+.hero {
+  min-height: 300px;
+  color: var(--clr-white);
+}
+
+.blog-hero {
+  background: linear-gradient(var(--clr-medium-shadow), var(--clr-medium-shadow)), url("/images/blog/blog-hero.jpg") center / cover;
+}
+
+.about-hero {
+  background: linear-gradient(var(--clr-medium-shadow), var(--clr-medium-shadow)), url("/images/about/about-hero.jpg") center / cover;
+}
+
+.contact-hero {
+  background: linear-gradient(var(--clr-medium-shadow), var(--clr-medium-shadow)), url("/images/contact/contact-hero.jpg") center / cover;
+}
+
+.hero__title {
+  font-size: var(--fs-xxxl);
+}
+
 /* -------------- Instagram Feed -------------- */
 
 .instagram-feed {
@@ -426,6 +453,27 @@ footer {
   margin-block: var(--space-0-5);
 }
 
+/* ----------------- Home Page ---------------- */
+/* ------------------- Hero ------------------- */
+
+.home-hero {
+  background-color: var(--clr-black);
+}
+
+.home-hero__image {
+  height: 400px;
+  mask-image: linear-gradient(var(--gradient-direction, to bottom), var(--clr-black) 0%, var(--clr-dark-shadow) 60%, transparent 100%);
+}
+
+.home-hero__content {
+  padding: var(--space-3) var(--space-1);
+  justify-self: center;
+}
+
+.home-hero__body {
+  max-width: 360px;
+}
+
 /* --------------- Media Queries -------------- */
 
 @media (min-width: 768px) {
@@ -448,6 +496,25 @@ footer {
   .header__nav::before,
   .btn-burger {
     display: none;
+  }
+
+  /* ----------------- Home Page ---------------- */
+  /* ------------------- Hero ------------------- */
+
+  .home-hero {
+    grid-template-columns: repeat(2, 1fr);
+    background: var(--clr-black) url("/images/home/camera-background.svg") no-repeat left bottom / 10%;
+  }
+
+  .home-hero__image {
+    --gradient-direction: to left;
+    grid-area: 1 / 2;
+  }
+
+  .home-hero__content {
+    width: min(var(--max-width) / 2, 100% - var(--screen-edge));
+    padding-left: 0;
+    place-self: center end;
   }
 
   /* ------------------ Footer ------------------ */
