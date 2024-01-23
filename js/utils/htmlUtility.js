@@ -34,9 +34,7 @@ export function createHTMLElement(tagname, classnames = null, text = null, child
 }
 
 export function clearElement(element) {
-  while (element.firstChild) {
-    element.removeChild(element.firstChild);
-  }
+  element.innerHTML = "";
 }
 
 export function parseHTML(htmlString) {
