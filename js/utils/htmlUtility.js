@@ -1,18 +1,24 @@
 export function createHTMLElement(tagname, classnames = null, text = null, children = null, url = null, src = null, alt = null) {
   const element = document.createElement(tagname);
 
-  if (Array.isArray(classnames) && classnames.length) {
-    element.classList.add(...classnames);
-  } else if (typeof classnames === "string" && classnames.trim() !== "") {
-    element.classList.add(classnames);
+  if (classnames) {
+    if (Array.isArray(classnames)) {
+      element.classList.add(...classnames);
+    } else {
+      element.classList.add(classnames);
+    }
   }
 
   if (text) {
     element.textContent = text;
   }
 
-  if (Array.isArray(children) && children.length) {
-    element.append(...children);
+  if (children) {
+    if (Array.isArray(children)) {
+      element.append(...children);
+    } else {
+      element.appendChild(children);
+    }
   }
 
   if (url) {
@@ -36,5 +42,5 @@ export function clearElement(element) {
 export function parseHTML(htmlString) {
   const parser = new DOMParser();
   const doc = parser.parseFromString(htmlString, "text/html");
-  return doc.body.children;
+  return doc.body;
 }
