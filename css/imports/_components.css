@@ -1,0 +1,52 @@
+/* -------------------------------------------- */
+/*                  Components                  */
+/* -------------------------------------------- */
+
+.logo {
+  max-width: 200px;
+  height: fit-content;
+}
+
+.card {
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 7px 0 var(--clr-light-shadow);
+  background-color: var(--clr-white);
+}
+
+.blog-card {
+  scroll-snap-align: start;
+  border: 1px solid var(--clr-deep-black);
+}
+
+.blog-card__link:is(:hover, :focus) .blog-card__content__title {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.blog-card__link:is(:hover, :focus) .blog-card__image {
+  transform: scale(1.1);
+}
+
+.blog-card__image-container {
+  flex: 1 1 150px;
+  height: 200px;
+}
+
+.blog-card__image {
+  transition: transform var(--tr-ease-in-out);
+}
+
+.blog-card__content {
+  flex: 1 1 250px;
+  padding: var(--space-1);
+}
+
+.blog-card__category {
+  inset: 0 auto auto 0;
+  padding: var(--space-0-5);
+  font-weight: var(--fw-semibold);
+  color: var(--clr-white);
+  border-bottom-right-radius: var(--border-radius);
+  background-color: var(--clr-deep-black);
+}

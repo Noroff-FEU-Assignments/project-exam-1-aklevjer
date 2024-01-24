@@ -1,0 +1,192 @@
+/* -------------------------------------------- */
+/*                    Header                    */
+/* -------------------------------------------- */
+
+header {
+  position: sticky;
+  top: 0;
+  min-height: var(--height-header);
+  background-color: var(--clr-deep-black);
+  z-index: 1;
+}
+
+.header__nav,
+.header__nav::before {
+  position: fixed;
+  top: var(--height-header);
+  height: 100vh;
+}
+
+.header__nav {
+  right: -100%;
+  width: 50%;
+  padding-block: var(--space-1-5);
+  transition: right var(--tr-ease-in-out);
+  background-color: var(--clr-gray);
+}
+
+.header__nav::before {
+  content: "";
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--tr-ease-in-out);
+  background-color: var(--clr-medium-shadow);
+  z-index: -1;
+}
+
+.header__nav-open {
+  right: 0;
+}
+
+.header__nav-open::before {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* -------------------------------------------- */
+/*                  Page Hero's                 */
+/* -------------------------------------------- */
+
+.hero {
+  min-height: 300px;
+  color: var(--clr-white);
+}
+
+.home-hero {
+  background-color: var(--clr-black);
+}
+
+.blog-hero {
+  background: linear-gradient(var(--clr-medium-shadow), var(--clr-medium-shadow)), url("/images/blog/blog-hero.jpg") center / cover;
+}
+
+.about-hero {
+  background: linear-gradient(var(--clr-medium-shadow), var(--clr-medium-shadow)), url("/images/about/about-hero.jpg") center / cover;
+}
+
+.contact-hero {
+  background: linear-gradient(var(--clr-medium-shadow), var(--clr-medium-shadow)), url("/images/contact/contact-hero.jpg") center / cover;
+}
+
+.hero__title {
+  font-size: var(--fs-xxxl);
+}
+
+.home-hero__image {
+  height: 400px;
+  mask-image: linear-gradient(var(--gradient-direction, to bottom), var(--clr-black) 0%, var(--clr-dark-shadow) 60%, transparent 100%);
+}
+
+.home-hero__content {
+  padding: var(--space-3) var(--space-1);
+  justify-self: center;
+}
+
+.home-hero__body {
+  max-width: 360px;
+}
+
+/* -------------------------------------------- */
+/*                Instagram Feed                */
+/* -------------------------------------------- */
+
+.instagram-feed {
+  grid-template: 1fr repeat(7, 0) / repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.instagram-feed .bxl-instagram {
+  inset: 0;
+  opacity: 0;
+  color: var(--clr-white);
+  transition: opacity var(--tr-ease-in-out);
+  background-color: var(--clr-medium-shadow);
+}
+
+.instagram-feed__link:is(:hover, :focus) .bxl-instagram {
+  opacity: 1;
+}
+
+/* -------------------------------------------- */
+/*                    Footer                    */
+/* -------------------------------------------- */
+
+footer {
+  color: var(--clr-white);
+  border-top: 5px solid var(--clr-light-orange);
+  background: linear-gradient(to top, var(--clr-deep-black), var(--clr-dark-gray));
+}
+
+.footer__container {
+  padding-block: var(--space-2) var(--space-1);
+}
+
+.footer__nav {
+  margin-block: var(--space-0-5);
+}
+
+/* -------------------------------------------- */
+/*                   Sections                   */
+/* -------------------------------------------- */
+
+/* ----------------- Carousel ----------------- */
+
+.carousel {
+  grid-auto-flow: column;
+  grid-auto-columns: 100%;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.prev-button,
+.next-button {
+  padding: 0;
+}
+
+.pagination__btn {
+  padding: var(--space-0-5);
+  cursor: pointer;
+  border: 1px solid var(--clr-dark-orange);
+  border-radius: 50%;
+}
+
+.active-pagination {
+  background-color: var(--clr-dark-orange);
+}
+
+/* ---------------- Newsletter ---------------- */
+
+.newsletter {
+  --wrap-style: wrap-reverse;
+}
+
+.newsletter > div {
+  flex: 1 1 300px;
+}
+
+/* --------------- Blog Listing --------------- */
+
+.blog-list {
+  grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr));
+}
+
+.search-filter-form > div {
+  flex-basis: 250px;
+}
+
+.search-input {
+  padding-left: var(--space-2-5);
+}
+
+.bx-search-alt-2 {
+  top: calc(50% - 0.3rem);
+  left: var(--space-0-5);
+  transform: translateY(-50%);
+}
