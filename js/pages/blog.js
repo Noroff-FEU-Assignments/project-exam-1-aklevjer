@@ -1,3 +1,3 @@
-export function blogPage() {
+export async function blogPage() {
   // TODO: Blog page logic
 }

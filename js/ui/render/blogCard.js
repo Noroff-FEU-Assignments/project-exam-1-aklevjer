@@ -39,7 +39,8 @@ export function createBlogCard(blogPost) {
   blogCardCategory.textContent = parsedCategory.textContent;
 
   // Title
-  blogCardTitle.textContent = blogPost.title.rendered;
+  const parsedTitle = utils.parseHTML(blogPost.title.rendered);
+  blogCardTitle.textContent = parsedTitle.textContent;
 
   // Date
   blogCardDate.textContent = utils.formatPostDate(blogPost.date);

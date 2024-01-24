@@ -1,3 +1,3 @@
-export function postPage() {
+export async function postPage(id) {
   // TODO: Post page logic
 }
