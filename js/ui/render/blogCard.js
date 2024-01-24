@@ -1,33 +1,33 @@
 import * as utils from "../../utils/index.js";
 
 const blogCardTemplate = `<a href="" class="blog-card__link">
-                            <div class="relative overflow-hidden">
+                            <div class="blog-card__image-container relative overflow-hidden">
                               <img src="" alt="" class="blog-card__image" />
                               <span class="blog-card__category absolute text-sm"></span>
                             </div>
                             <div class="blog-card__content flow">
-                              <h3 class="blog-card__content__title truncate-text"></h3>
                               <div class="flex items-center gap-0-5 text-sm">
                                 <i class="bx bx-calendar bx-xs"></i>
-                                <time datetime=""></time>
+                                <time datetime="" class="blog-card__content__time"></time>
                               </div>
-                              <p class="truncate-text"></p>
+                              <p class="blog-card__content__excerpt truncate-text"></p>
                             </div>
                           </a>`;
 
-export function createBlogCard(blogPost) {
+export function createBlogCard(blogPost, isBlogPage) {
   const blogCard = utils.createHTMLElement("li", ["blog-card", "card"]);
   blogCard.innerHTML = blogCardTemplate;
 
-  const blogCardLink = blogCard.querySelector("a");
-  const blogCardImage = blogCard.querySelector("img");
-  const blogCardCategory = blogCard.querySelector("span");
-  const blogCardTitle = blogCard.querySelector("h3");
-  const blogCardDate = blogCard.querySelector("time");
-  const blogCardExcerpt = blogCard.querySelector("p");
+  const blogCardLink = blogCard.querySelector(".blog-card__link");
+  const blogCardImage = blogCard.querySelector(".blog-card__image");
+  const blogCardCategory = blogCard.querySelector(".blog-card__category");
+  const blogCardContent = blogCard.querySelector(".blog-card__content");
+  const blogCardDate = blogCard.querySelector(".blog-card__content__time");
+  const blogCardExcerpt = blogCard.querySelector(".blog-card__content__excerpt");
 
   // Link
   blogCardLink.href = `/pages/blog/post/?id=${blogPost.id}`;
+  isBlogPage && blogCardLink.classList.add("flex", "flex-wrap");
 
   // Image
   const blogPostImage = utils.getImageFromPost(blogPost);
@@ -40,7 +40,9 @@ export function createBlogCard(blogPost) {
 
   // Title
   const parsedTitle = utils.parseHTML(blogPost.title.rendered);
+  const blogCardTitle = utils.createHTMLElement(isBlogPage ? "h2" : "h3", ["blog-card__content__title", "truncate-text"]);
   blogCardTitle.textContent = parsedTitle.textContent;
+  blogCardContent.prepend(blogCardTitle);
 
   // Date
   blogCardDate.textContent = utils.formatPostDate(blogPost.date);

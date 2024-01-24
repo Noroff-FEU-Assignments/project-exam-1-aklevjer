@@ -8,7 +8,7 @@ export async function homePage() {
     const carousel = document.querySelector(".carousel");
 
     latestPosts.forEach((post) => {
-      const createdPost = ui.createBlogCard(post);
+      const createdPost = ui.createBlogCard(post, false);
       carousel.append(createdPost);
     });
   } catch (error) {

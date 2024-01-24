@@ -40,6 +40,31 @@
         </div>
       </section>
 
+      <section class="container flow">
+        <form class="search-filter-form flex flex-wrap justify-between gap-1">
+          <div>
+            <label for="search-input">Search for articles</label>
+            <div class="relative">
+              <input type="search" id="search-input" class="search-input card" placeholder="Enter keywords.." />
+              <i class="bx bx-search-alt-2 bx-sm absolute"></i>
+            </div>
+          </div>
+
+          <div>
+            <label for="filter-select">Filter by category</label>
+            <select id="filter-select" class="card">
+              <option value="all">All</option>
+              <option value="guide">Guide</option>
+              <option value="gear">Gear</option>
+              <option value="location">Location</option>
+              <option value="tips-n-tricks">Tips & Tricks</option>
+            </select>
+          </div>
+        </form>
+
+        <ul class="blog-list grid gap-2"></ul>
+      </section>
+
       <section>
         <h2 class="container mb-2 text-center">Follow <a href="#">@shutterjourney</a> on Instagram!</h2>
 
