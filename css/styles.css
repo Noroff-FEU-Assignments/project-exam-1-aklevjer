@@ -235,7 +235,7 @@ label {
 }
 
 .fluid-padding {
-  padding: var(--padding-block, var(--space-2)) clamp(var(--space-1), 4vw, var(--space-3));
+  padding: var(--space-2) clamp(var(--space-1), 4vw, var(--space-3));
 }
 
 .text-center {
@@ -244,6 +244,10 @@ label {
 
 .text-sm {
   font-size: var(--fs-small);
+}
+
+.text-medium {
+  font-size: var(--fs-medium);
 }
 
 .text-short {
@@ -549,7 +553,6 @@ footer {
 /* ------------- Newsletter Signup ------------ */
 
 .newsletter {
-  --padding-block: var(--space-3);
   --wrap-style: wrap-reverse;
 }
 
