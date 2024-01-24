@@ -11,6 +11,8 @@ export async function homePage() {
       const createdPost = ui.createBlogCard(post, false);
       carousel.append(createdPost);
     });
+
+    ui.initCarousel();
   } catch (error) {
     console.error(error);
   }
