@@ -92,6 +92,10 @@ header {
 /*                Instagram Feed                */
 /* -------------------------------------------- */
 
+.instagram {
+  margin-top: 7.5rem;
+}
+
 .instagram-feed {
   grid-template: 1fr repeat(7, 0) / repeat(auto-fit, minmax(150px, 1fr));
 }
@@ -133,6 +137,7 @@ footer {
 /* ----------------- Carousel ----------------- */
 
 .carousel {
+  min-height: 200px;
   grid-auto-flow: column;
   grid-auto-columns: 100%;
   overflow-x: auto;
@@ -174,6 +179,7 @@ footer {
 /* --------------- Blog Listing --------------- */
 
 .blog-list {
+  min-height: 200px;
   grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr));
 }
 
@@ -182,11 +188,24 @@ footer {
 }
 
 .search-input {
-  padding-left: var(--space-2-5);
+  padding-left: var(--space-2);
 }
 
 .bx-search-alt-2 {
   top: calc(50% - 0.3rem);
   left: var(--space-0-5);
   transform: translateY(-50%);
+}
+
+/* ----------------- Reach Out ---------------- */
+
+.reach-out {
+  grid-template: 1fr 0 / repeat(auto-fit, minmax(min(330px, 100%), 1fr));
+  gap: 0 var(--space-2);
+}
+
+/* -------------- Connect With Me ------------- */
+
+.connect-with-me__content {
+  flex: 1 1 25ch;
 }

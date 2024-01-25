@@ -59,7 +59,11 @@
           </div>
         </div>
 
-        <ul class="carousel mb-2 grid gap-1"></ul>
+        <ul class="carousel relative mb-2 grid gap-1">
+          <li>
+            <div class="loading-spinner absolute"></div>
+          </li>
+        </ul>
 
         <ul class="pagination hidden justify-center gap-0-5">
           <li>
@@ -107,11 +111,11 @@
             <p>Subscribe for exclusive photography tips, the latest updates, and more!</p>
 
             <form>
-              <label for="email">Email <span class="required-field">*</span></label>
+              <label for="email">Email <span class="text-red">*</span></label>
               <input type="email" id="email" name="email" placeholder="email@example.com" required />
 
               <input type="submit" value="Subscribe now" class="btn btn-dark" />
-              <p class="text-sm"><span class="required-field">*</span> Required field</p>
+              <p class="text-sm"><span class="text-red">*</span> Required field</p>
             </form>
           </div>
         </div>
@@ -119,7 +123,7 @@
         <div><img src="/images/home/newsletter.jpg" alt="Silhouette of a person standing on a rock during sunset" /></div>
       </section>
 
-      <section>
+      <section class="instagram">
         <h2 class="container mb-2 text-center">Follow <a href="#">@shutterjourney</a> on Instagram!</h2>
 
         <ul class="instagram-feed grid">

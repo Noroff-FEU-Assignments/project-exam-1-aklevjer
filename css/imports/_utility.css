@@ -103,7 +103,7 @@
   max-width: 45ch;
 }
 
-.required-field {
+.text-red {
   color: var(--clr-red);
 }
 

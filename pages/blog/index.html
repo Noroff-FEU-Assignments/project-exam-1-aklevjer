@@ -43,10 +43,10 @@
       <section class="container flow">
         <form class="search-filter-form flex flex-wrap justify-between gap-1">
           <div>
-            <label for="search-input">Search for articles</label>
+            <label for="search-input">Search for posts</label>
             <div class="relative">
               <input type="search" id="search-input" class="search-input card" placeholder="Enter keywords.." />
-              <i class="bx bx-search-alt-2 bx-sm absolute"></i>
+              <i class="bx bx-search-alt-2 absolute text-medium"></i>
             </div>
           </div>
 
@@ -62,10 +62,16 @@
           </div>
         </form>
 
-        <ul class="blog-list grid gap-2"></ul>
+        <ul class="blog-list relative mb-2 grid gap-2">
+          <li>
+            <div class="loading-spinner absolute"></div>
+          </li>
+        </ul>
+
+        <button class="btn btn-dark">Show more</button>
       </section>
 
-      <section>
+      <section class="instagram">
         <h2 class="container mb-2 text-center">Follow <a href="#">@shutterjourney</a> on Instagram!</h2>
 
         <ul class="instagram-feed grid">

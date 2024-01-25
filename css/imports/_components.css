@@ -1,11 +1,13 @@
 /* -------------------------------------------- */
-/*                  Components                  */
+/*              Reusable Components             */
 /* -------------------------------------------- */
 
 .logo {
   max-width: 200px;
   height: fit-content;
 }
+
+/* ------------------- Cards ------------------ */
 
 .card {
   overflow: hidden;
@@ -49,4 +51,28 @@
   color: var(--clr-white);
   border-bottom-right-radius: var(--border-radius);
   background-color: var(--clr-deep-black);
+}
+
+/* ---------- Spinner & Error Message --------- */
+
+.loading-spinner,
+.error-message {
+  inset: 0;
+  margin: auto;
+}
+
+.loading-spinner {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 7px solid var(--clr-soft-gray);
+  border-top-color: var(--clr-dark-orange);
+  animation: spin 2s linear infinite;
+}
+
+.error-message {
+  width: fit-content;
+  height: fit-content;
+  padding: var(--space-1);
+  border: 4px solid var(--clr-red);
 }
