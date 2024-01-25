@@ -49,7 +49,7 @@
   }
 
   .home-hero__content {
-    width: min(var(--max-width) / 2, 100% - var(--screen-edge));
+    width: min(var(--container-width) / 2, 100% - var(--screen-edge));
     padding-left: 0;
     place-self: center end;
   }

@@ -46,7 +46,7 @@
   --tr-linear: 125ms linear;
   --tr-ease-in-out: 300ms ease-in-out;
 
-  --max-width: 1150px;
+  --container-width: 1150px;
   --screen-edge: var(--space-1);
   --height-header: 70px;
 }
