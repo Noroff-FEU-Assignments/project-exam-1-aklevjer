@@ -26,8 +26,8 @@ export function createHTMLElement(tagname, classnames = null, text = null, child
   }
 
   if (src && alt) {
-    element.setAttribute("src", src);
-    element.setAttribute("alt", alt);
+    element.src = src;
+    element.alt = alt;
   }
 
   return element;
