@@ -71,10 +71,6 @@
   gap: var(--space-2);
 }
 
-.gap-3 {
-  gap: var(--space-3);
-}
-
 .flow > * + * {
   margin-block-start: var(--flow-space, 1em);
 }
@@ -107,13 +103,26 @@
   color: var(--clr-red);
 }
 
+.min-h-200 {
+  min-height: 200px;
+}
+
 .rounded-corners {
   border-radius: var(--border-radius);
+}
+
+.rounded-full {
+  border-radius: 50%;
 }
 
 .border-bottom {
   padding-bottom: var(--space-0-5);
   border-bottom: 1px solid var(--clr-deep-black);
+}
+
+.bullet-separator > :not(:first-child)::before {
+  content: "\2022";
+  margin-inline: var(--bullet-space, 0 var(--space-0-5));
 }
 
 .overflow-hidden,

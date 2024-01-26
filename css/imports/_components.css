@@ -53,7 +53,7 @@
   background-color: var(--clr-deep-black);
 }
 
-/* ---------- Spinner & Error Message --------- */
+/* ---------- Loader & Error Message ---------- */
 
 .loading-spinner,
 .error-message {
@@ -64,7 +64,6 @@
 .loading-spinner {
   width: 70px;
   height: 70px;
-  border-radius: 50%;
   border: 7px solid var(--clr-soft-gray);
   border-top-color: var(--clr-dark-orange);
   animation: spin 2s linear infinite;
