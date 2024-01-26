@@ -12,8 +12,8 @@ export async function homePage() {
     utils.clearElement(carousel);
 
     latestPosts.forEach((post) => {
-      const createdPost = ui.createBlogCard(post, false);
-      carousel.append(createdPost);
+      const blogCard = ui.createBlogCard(post, false);
+      carousel.append(blogCard);
     });
 
     ui.initCarousel();

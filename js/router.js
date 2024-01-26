@@ -19,7 +19,7 @@ export async function router() {
     case "/pages/blog/post":
     case "/pages/blog/post/":
     case "/pages/blog/post/index.html":
-      await pages.postPage(params.id);
+      await pages.blogPostPage(params.id);
       break;
 
     case "/pages/about":
