@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Discover a visual journey with Shutter Journey's photography post, revealing guides, gear, tips & tricks, and stunning locations." />
-    <title>Shutter Journey - Blog Post</title>
+    <title>Shutter Journey</title>
     <link rel="icon" sizes="any" href="/images/shared/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -33,6 +33,70 @@
     </header>
 
     <main>
+      <div class="hero relative">
+        <div class="loading-spinner absolute rounded-full"></div>
+      </div>
+
+      <div class="container flex flex-wrap gap-2">
+        <div class="blog-post__content">
+          <article class="blog-post__article relative min-h-200 card mb-2 flow fluid-padding">
+            <div class="loading-spinner absolute rounded-full"></div>
+          </article>
+
+          <section>
+            <div class="card mb-2 fluid-padding">
+              <h2 class="mb-2 border-bottom">Comments (1)</h2>
+              <div class="flow">
+                <div class="bullet-separator flex items-center gap-0-5">
+                  <h3>John doe</h3>
+                  <span>Jan 23, 2023 </span>
+                </div>
+                <p>Great guide! Can't wait to use leading lines for better compositions.</p>
+              </div>
+            </div>
+
+            <form class="card fluid-padding">
+              <h2 class="mb-2 border-bottom">Leave a comment</h2>
+
+              <label for="name">Name <span class="text-red">*</span></label>
+              <input type="text" id="name" name="name" placeholder="Name" required />
+
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="email@example.com" />
+
+              <label for="comment">Comment <span class="text-red">*</span></label>
+              <textarea id="comment" name="comment" placeholder="Comment" required></textarea>
+
+              <input type="submit" value="Post comment" class="btn btn-dark" />
+              <p class="text-sm"><span class="text-red">*</span> Required fields</p>
+            </form>
+          </section>
+        </div>
+
+        <aside class="blog-post__aside">
+          <section class="popular-posts card mb-2 flow">
+            <h2 class="border-bottom">Popular posts</h2>
+
+            <ul class="popular-posts__list relative min-h-200 flow">
+              <li><div class="loading-spinner absolute rounded-full"></div></li>
+            </ul>
+          </section>
+
+          <section class="post-search card flow">
+            <h2 class="border-bottom">Search</h2>
+
+            <form action="/pages/blog/" method="GET">
+              <label for="search-input">Search for posts</label>
+              <div class="relative flex gap-0-5">
+                <input type="search" id="search-input" name="search" class="search-input" placeholder="Enter keywords.." />
+                <i class="bx bx-search-alt-2 absolute text-medium"></i>
+                <input type="submit" class="btn-submit btn btn-dark" value="Search" />
+              </div>
+            </form>
+          </section>
+        </aside>
+      </div>
+
       <section class="instagram">
         <h2 class="container mb-2 text-center">Follow <a href="#">@shutterjourney</a> on Instagram!</h2>
 
