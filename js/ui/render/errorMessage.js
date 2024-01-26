@@ -5,10 +5,10 @@ export function showErrorMessage(parentElement, message) {
 
   const errorTitle = utils.createHTMLElement("strong", ["text-medium", "text-red"], "Error");
   const errorBody = utils.createHTMLElement("p", null, message);
-
   const errorContent = utils.createHTMLElement("div", null, null, [errorTitle, errorBody]);
 
-  const loadingSpinner = parentElement.querySelector(".loading-spinner");
-  loadingSpinner.className = "error-message absolute flex items-center gap-1 rounded-corners";
-  loadingSpinner.append(errorIcon, errorContent);
+  const errorMessage = utils.createHTMLElement("div", ["error-message", "absolute", "flex", "items-center", "gap-1", "rounded-corners"], null, [errorIcon, errorContent]);
+
+  utils.clearElement(parentElement);
+  parentElement.append(errorMessage);
 }
