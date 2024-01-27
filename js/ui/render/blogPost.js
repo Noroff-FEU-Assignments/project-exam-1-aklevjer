@@ -1,3 +1,4 @@
+import * as ui from "../index.js";
 import * as utils from "../../utils/index.js";
 
 const blogPostTemplate = `<span class="blog-card__category rounded-corners"></span>
@@ -9,7 +10,7 @@ const blogPostTemplate = `<span class="blog-card__category rounded-corners"></sp
                             </div>
                             <div class="flex items-center gap-0-5">
                               <i class="bx bx-calendar bx-xs"></i>
-                              <time class="blog-post__date" datetime=""></time>
+                              <time datetime="" class="blog-post__date"></time>
                             </div>
                             <div class="hidden items-center gap-0-5">
                               <i class="bx bx-comment bx-xs"></i>
@@ -55,5 +56,12 @@ export function renderBlogPost(blogPost, blogPostHero, blogPostArticle) {
 
   // Content
   const parsedContent = utils.parseHTML(blogPost.content.rendered);
+
+  // Modal for images
+  const blogPostImages = Array.from(parsedContent.querySelectorAll("img"));
+  blogPostImages.push(heroImage);
+  ui.initModal(blogPostImages);
+
+  // Append content
   blogPostArticle.append(...parsedContent.children);
 }
