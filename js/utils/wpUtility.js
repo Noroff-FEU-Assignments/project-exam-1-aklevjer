@@ -2,7 +2,7 @@ import * as utils from "./index.js";
 
 export function getImageFromPost(post) {
   const parsedPost = utils.parseHTML(post.content.rendered);
-  return parsedPost.querySelector(".wp-block-image img");
+  return parsedPost.querySelector("img");
 }
 
 export function formatPostDate(date) {

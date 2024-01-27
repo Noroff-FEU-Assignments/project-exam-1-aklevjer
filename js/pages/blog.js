@@ -12,8 +12,8 @@ export async function blogPage() {
     utils.clearElement(blogList);
 
     allPosts.forEach((post) => {
-      const createdPost = ui.createBlogCard(post, true);
-      blogList.append(createdPost);
+      const blogCard = ui.createBlogCard(post, true);
+      blogList.append(blogCard);
     });
   } catch (error) {
     console.error(error);
