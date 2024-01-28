@@ -2,6 +2,7 @@ import * as utils from "../utils/index.js";
 
 function openModal(modal, modalCloseBtn) {
   modal.showModal();
+  modalCloseBtn.blur();
   toggleBodyScroll();
 
   document.addEventListener("click", handleOutsideClick);
@@ -42,7 +43,6 @@ function toggleBodyScroll() {
 
 function renderModal(image) {
   const modalImage = utils.createHTMLElement("img", "modal__image", null, null, null, image.src, image.alt);
-
   const modalCloseIcon = utils.createHTMLElement("i", ["bx", "bx-x", "bx-md"]);
   const modalCloseSrText = utils.createHTMLElement("span", "sr-only", "Close");
   const modalCloseBtn = utils.createHTMLElement("button", ["modal__btn", "btn", "absolute"], null, [modalCloseIcon, modalCloseSrText]);

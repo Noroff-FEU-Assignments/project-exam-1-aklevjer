@@ -76,7 +76,7 @@
   border: 4px solid var(--clr-red);
 }
 
-/* ------------------- Modal ------------------ */
+/* ---------------- Image Modal --------------- */
 
 .modal {
   margin: auto;
@@ -88,40 +88,41 @@
   background-color: var(--clr-medium-shadow, rgba(0, 0, 0, 0.7));
 }
 
-.modal[open],
-.modal[open]::backdrop {
-  animation: fadeIn var(--tr-ease-in-out, 200ms ease-in-out);
-}
-
-.modal.modal-close[open],
-.modal.modal-close[open]::backdrop {
-  animation: fadeOut var(--tr-ease-in-out, 200ms ease-in-out);
-}
-
 .modal__image {
   max-height: 90vh;
 }
 
 .modal__btn {
-  inset: var(--space-1-5) var(--space-1-5) auto auto;
-  padding: var(--space-0-3);
+  inset: var(--space-1) var(--space-1) auto auto;
+  padding: 0;
+  border: 1px solid var(--clr-white);
   background-color: var(--clr-deep-black);
 }
 
+/* Animate Dialog & Backdrop
+  Inspiration: https://stackoverflow.com/a/71984473 */
+
+.modal[open],
+.modal[open]::backdrop {
+  animation: fadeIn var(--tr-ease-in-out, 200ms ease-in-out);
+}
+
+.modal-close[open],
+.modal-close[open]::backdrop {
+  animation: fadeOut var(--tr-ease-in-out, 200ms ease-in-out);
+}
+
 @keyframes fadeIn {
-  0% {
+  from {
     opacity: 0;
   }
-  100% {
+  to {
     opacity: 1;
   }
 }
 
 @keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-  100% {
+  to {
     opacity: 0;
   }
 }
