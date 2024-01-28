@@ -11,8 +11,8 @@ export async function blogPostPage(id) {
   try {
     const blogPost = await api.fetchPostById(id);
 
-    const parsedTitle = utils.parseHTML(blogPost.title.rendered);
-    utils.updatePageTitle(parsedTitle.textContent);
+    const blogPostTitle = utils.getParsedText(blogPost.title.rendered);
+    utils.updatePageTitle(blogPostTitle);
 
     ui.renderBlogPost(blogPost, blogPostHero, blogPostArticle);
   } catch (error) {

@@ -35,13 +35,11 @@ export function createBlogCard(blogPost, isBlogPage) {
   blogCardImage.alt = blogPostImage.alt;
 
   // Category
-  const parsedCategory = utils.parseHTML(blogPost._embedded["wp:term"][0][0].name);
-  blogCardCategory.textContent = parsedCategory.textContent;
+  blogCardCategory.textContent = utils.getParsedText(blogPost._embedded["wp:term"][0][0].name);
 
   // Title
-  const parsedTitle = utils.parseHTML(blogPost.title.rendered);
   const blogCardTitle = utils.createHTMLElement(isBlogPage ? "h2" : "h3", ["blog-card__content__title", "truncate-text"]);
-  blogCardTitle.textContent = parsedTitle.textContent;
+  blogCardTitle.textContent = utils.getParsedText(blogPost.title.rendered);
   blogCardContent.prepend(blogCardTitle);
 
   // Date
@@ -49,8 +47,7 @@ export function createBlogCard(blogPost, isBlogPage) {
   blogCardDate.setAttribute("datetime", blogPost.date);
 
   // Excerpt
-  const parsedExcerpt = utils.parseHTML(blogPost.excerpt.rendered);
-  blogCardExcerpt.textContent = parsedExcerpt.textContent;
+  blogCardExcerpt.textContent = utils.getParsedText(blogPost.excerpt.rendered);
 
   return blogCard;
 }

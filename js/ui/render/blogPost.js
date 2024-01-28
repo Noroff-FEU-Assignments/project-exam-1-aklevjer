@@ -21,11 +21,11 @@ const blogPostTemplate = `<span class="blog-card__category rounded-corners"></sp
 export function renderBlogPost(blogPost, blogPostHero, blogPostArticle) {
   blogPostArticle.innerHTML = blogPostTemplate;
 
-  const blogPostCategory = document.querySelector(".blog-card__category");
-  const blogPostTitle = document.querySelector(".blog-post__title");
-  const blogPostAuthorAvatar = document.querySelector(".blog-post__author-avatar");
-  const blogPostAuthorName = document.querySelector(".blog-post__author-name");
-  const blogPostDate = document.querySelector(".blog-post__date");
+  const blogPostCategory = blogPostArticle.querySelector(".blog-card__category");
+  const blogPostTitle = blogPostArticle.querySelector(".blog-post__title");
+  const blogPostAuthorAvatar = blogPostArticle.querySelector(".blog-post__author-avatar");
+  const blogPostAuthorName = blogPostArticle.querySelector(".blog-post__author-name");
+  const blogPostDate = blogPostArticle.querySelector(".blog-post__date");
 
   // Hero image
   const featuredImgSrc = blogPost._embedded["wp:featuredmedia"][0].source_url;
@@ -34,21 +34,17 @@ export function renderBlogPost(blogPost, blogPostHero, blogPostArticle) {
   blogPostHero.replaceWith(heroImage);
 
   // Category
-  const parsedCategory = utils.parseHTML(blogPost._embedded["wp:term"][0][0].name);
-  blogPostCategory.textContent = parsedCategory.textContent;
+  blogPostCategory.textContent = utils.getParsedText(blogPost._embedded["wp:term"][0][0].name);
 
   // Title
-  const parsedTitle = utils.parseHTML(blogPost.title.rendered);
-  blogPostTitle.textContent = parsedTitle.textContent;
+  blogPostTitle.textContent = utils.getParsedText(blogPost.title.rendered);
 
   // Author avatar
-  const avatarUrl = blogPost._embedded["author"][0].avatar_urls[24];
-  blogPostAuthorAvatar.src = avatarUrl;
+  blogPostAuthorAvatar.src = blogPost._embedded["author"][0].avatar_urls[24];
   blogPostAuthorAvatar.alt = "Avatar for the author of the article";
 
   // Author name
-  const authorName = blogPost._embedded["author"][0].name;
-  blogPostAuthorName.textContent = authorName;
+  blogPostAuthorName.textContent = blogPost._embedded["author"][0].name;
 
   // Date
   blogPostDate.textContent = utils.formatPostDate(blogPost.date);
@@ -59,7 +55,6 @@ export function renderBlogPost(blogPost, blogPostHero, blogPostArticle) {
 
   // Modal for images
   const blogPostImages = Array.from(parsedContent.querySelectorAll("img"));
-  blogPostImages.push(heroImage);
   ui.initModal(blogPostImages);
 
   // Append content

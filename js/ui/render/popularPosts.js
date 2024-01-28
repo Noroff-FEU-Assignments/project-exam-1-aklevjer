@@ -26,12 +26,10 @@ function createPopularPost(blogPost) {
   popularPostImage.alt = blogPostImage.alt;
 
   // Category
-  const parsedCategory = utils.parseHTML(blogPost._embedded["wp:term"][0][0].name);
-  popularPostCategory.textContent = parsedCategory.textContent;
+  popularPostCategory.textContent = utils.getParsedText(blogPost._embedded["wp:term"][0][0].name);
 
   // Title
-  const parsedTitle = utils.parseHTML(blogPost.title.rendered);
-  popularPostTitle.textContent = parsedTitle.textContent;
+  popularPostTitle.textContent = utils.getParsedText(blogPost.title.rendered);
 
   return popularPost;
 }
