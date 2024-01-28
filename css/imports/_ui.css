@@ -165,6 +165,25 @@ footer {
   background-color: var(--clr-dark-orange);
 }
 
+/* --------------- Featured Post -------------- */
+
+.featured-post {
+  padding-block: var(--space-3);
+  background-color: var(--clr-white);
+}
+
+.featured-post__container {
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+}
+
+.featured-post__image {
+  max-height: 320px;
+}
+
+.featured-post__body {
+  --max-lines: 3;
+}
+
 /* ---------------- Newsletter ---------------- */
 
 .newsletter {
@@ -215,6 +234,7 @@ footer {
 
 .blog-post__article img {
   max-height: 400px;
+  cursor: pointer;
 }
 
 /* Blog Post Aside */
