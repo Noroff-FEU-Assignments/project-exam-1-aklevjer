@@ -1,3 +1,5 @@
+import * as ui from "../ui/index.js";
+
 export function contactPage() {
-  // TODO: Contact page logic
+  ui.initContactForm();
 }

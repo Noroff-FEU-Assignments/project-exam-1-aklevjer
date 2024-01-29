@@ -79,6 +79,24 @@
   border: 4px solid var(--clr-red);
 }
 
+/* Input Error */
+
+.input__error {
+  padding-right: var(--space-2-5);
+  outline-color: var(--clr-red);
+  border-color: var(--clr-red);
+}
+
+.input__error-icon {
+  top: var(--space-1);
+  right: var(--space-0-5);
+}
+
+.input__error-message {
+  margin: calc(var(--space-0-7) * -1) var(--space-0-3) var(--space-0-7);
+  font-weight: var(--fw-semibold);
+}
+
 /* ---------------- Image Modal --------------- */
 
 .modal {

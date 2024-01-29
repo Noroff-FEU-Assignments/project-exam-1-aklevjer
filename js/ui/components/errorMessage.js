@@ -12,3 +12,13 @@ export function showErrorMessage(parentElement, message) {
   utils.clearElement(parentElement);
   parentElement.append(errorMessage);
 }
+
+export function toggleInputError(inputElement, showError) {
+  const inputContainer = inputElement.parentElement;
+  const errorIcon = inputContainer.querySelector(".input__error-icon");
+  const errorMessage = inputContainer.querySelector(".input__error-message");
+
+  inputElement.classList.toggle("input__error", !showError);
+  errorIcon.classList.toggle("hidden", showError);
+  errorMessage.classList.toggle("hidden", showError);
+}
