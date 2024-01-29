@@ -1,4 +1,4 @@
-import * as utils from "../utils/index.js";
+import * as utils from "../../utils/index.js";
 
 function openModal(modal, modalCloseBtn) {
   modal.showModal();

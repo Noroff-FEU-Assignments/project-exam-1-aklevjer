@@ -1,4 +1,3 @@
 export * from "./mobileNav.js";
-export * from "./modal.js";
-export * from "./carousel.js";
+export * from "./components/index.js";
 export * from "./render/index.js";

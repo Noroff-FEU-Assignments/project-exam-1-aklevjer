@@ -1,4 +1,4 @@
-import * as constants from "../constants/index.js";
+import * as constants from "../../constants/index.js";
 
 let currentPos = constants.slideMinPos;
 let slideMaxPos = 0;
