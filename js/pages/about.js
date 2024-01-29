@@ -1,3 +1,5 @@
+import * as ui from "../ui/index.js";
+
 export function aboutPage() {
-  // TODO: About page logic
+  ui.initAccordions();
 }

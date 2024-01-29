@@ -55,6 +55,9 @@
 
 /* ---------- Loader & Error Message ---------- */
 
+/* Loading Spinner
+  Inspiration: https://www.w3schools.com/howto/howto_css_loader.asp */
+
 .loading-spinner,
 .error-message {
   inset: 0;
@@ -125,4 +128,31 @@
   to {
     opacity: 0;
   }
+}
+
+/* ---------------- Accordions ---------------- */
+
+.accordion__header {
+  width: 100%;
+  padding: var(--space-0-5) var(--space-1);
+  text-align: left;
+  cursor: pointer;
+  border: 1px solid var(--clr-deep-black);
+}
+
+.accordion__header .bx-plus-circle {
+  color: var(--clr-dark-orange);
+}
+
+.accordion__content {
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--tr-linear);
+}
+
+.accordion__content-open {
+  grid-template-rows: 1fr;
+}
+
+.accordion__content p {
+  padding: var(--space-1);
 }

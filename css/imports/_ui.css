@@ -256,6 +256,23 @@ footer {
   max-width: 75px;
 }
 
+/* ----------- Journey Behind & FAQ ----------- */
+
+.journey-behind__image-container,
+.faq__content {
+  flex: 1 1 250px;
+}
+
+.journey-behind__content,
+.faq__accordions {
+  flex: 1 1 400px;
+}
+
+.faq__accordions {
+  min-height: 350px;
+  place-content: center;
+}
+
 /* ----------------- Reach Out ---------------- */
 
 .reach-out {

@@ -41,9 +41,9 @@
       </section>
 
       <section class="container card flex flex-wrap">
-        <div><img src="/images/about/journey-behind-1.jpg" alt="Person crouched with a DSLR camera on the street, facing the camera" /></div>
+        <div class="journey-behind__image-container"><img src="/images/about/journey-behind-1.jpg" alt="Person crouched with a DSLR camera on the street, facing the camera" /></div>
 
-        <div class="flow fluid-padding">
+        <div class="journey-behind__content flow fluid-padding">
           <h2>Journey behind the lens</h2>
           <p>Hey there! Welcome to Shutter Journey, your go-to photography blog for inspiration and a glimpse behind the scenes of the captivating world of photography.</p>
           <p>I'm a passionate photographer and storyteller, continuously chasing compelling moments through my lens. Each photograph I take tells a story, blending emotions, light, and creativity. It's about capturing the essence of a single moment in time.</p>
@@ -65,59 +65,67 @@
           <a href="/pages/contact/" class="btn btn-dark">Contact me</a>
         </div>
 
-        <div class="faq__accordions">
-          <div class="faq__accordion-panel">
+        <ul class="faq__accordions grid gap-1">
+          <li class="accordion__panel">
             <h3 id="panel1-heading">
-              <button aria-expanded="false" aria-controls="panel1-content" class="faq__accordion-header flex items-center justify-between gap-1 rounded-corners text-medium">
+              <button aria-expanded="false" aria-controls="panel1-content" class="accordion__header flex items-center justify-between gap-1 rounded-corners text-medium">
                 <span>How often do you post new content?</span>
-                <i class="bx bx-chevron-right-circle"></i>
+                <i class="bx bx-plus-circle"></i>
               </button>
             </h3>
 
-            <div id="panel1-content" aria-hidden="true" aria-labelledby="panel1-heading" class="faq__accordion-content grid">
-              <p class="overflow-hidden">I aim to share fresh content regularly, at least once a week. Stay tuned for exciting new photography insights!</p>
+            <div id="panel1-content" aria-hidden="true" aria-labelledby="panel1-heading" class="accordion__content grid">
+              <div class="overflow-hidden">
+                <p>I aim to share fresh content regularly, at least once a week. Stay tuned for exciting new photography insights!</p>
+              </div>
             </div>
-          </div>
+          </li>
 
-          <div class="faq__accordion-panel">
+          <li class="accordion__panel">
             <h3 id="panel2-heading">
-              <button aria-expanded="false" aria-controls="panel2-content" class="faq__accordion-header flex items-center justify-between gap-1 rounded-corners text-medium">
+              <button aria-expanded="false" aria-controls="panel2-content" class="accordion__header flex items-center justify-between gap-1 rounded-corners text-medium">
                 <span>Can I share your content on social media?</span>
-                <i class="bx bx-chevron-right-circle"></i>
+                <i class="bx bx-plus-circle"></i>
               </button>
             </h3>
 
-            <div id="panel2-content" aria-hidden="true" aria-labelledby="panel2-heading" class="faq__accordion-content grid">
-              <p class="overflow-hidden">Yes, absolutely! Feel free to share my content and help it reach a wider audience. Thanks for spreading the word!</p>
+            <div id="panel2-content" aria-hidden="true" aria-labelledby="panel2-heading" class="accordion__content grid">
+              <div class="overflow-hidden">
+                <p>Yes, absolutely! Feel free to share my content and help it reach a wider audience. Thanks for spreading the word!</p>
+              </div>
             </div>
-          </div>
+          </li>
 
-          <div class="faq__accordion-panel">
+          <li class="accordion__panel">
             <h3 id="panel3-heading">
-              <button aria-expanded="false" aria-controls="panel3-content" class="faq__accordion-header flex items-center justify-between gap-1 rounded-corners text-medium">
+              <button aria-expanded="false" aria-controls="panel3-content" class="accordion__header flex items-center justify-between gap-1 rounded-corners text-medium">
                 <span>Do you offer photography coaching?</span>
-                <i class="bx bx-chevron-right-circle"></i>
+                <i class="bx bx-plus-circle"></i>
               </button>
             </h3>
 
-            <div id="panel3-content" aria-hidden="true" aria-labelledby="panel3-heading" class="faq__accordion-content grid">
-              <p class="overflow-hidden">Yes, I offer photography coaching! Feel free to reach out via the contact page for more details.</p>
+            <div id="panel3-content" aria-hidden="true" aria-labelledby="panel3-heading" class="accordion__content grid">
+              <div class="overflow-hidden">
+                <p>Yes, I offer photography coaching! Feel free to reach out via the contact page for more details.</p>
+              </div>
             </div>
-          </div>
+          </li>
 
-          <div class="faq__accordion-panel">
+          <li class="accordion__panel">
             <h3 id="panel4-heading">
-              <button aria-expanded="false" aria-controls="panel4-content" class="faq__accordion-header flex items-center justify-between gap-0-5 rounded-corners text-medium">
+              <button aria-expanded="false" aria-controls="panel4-content" class="accordion__header flex items-center justify-between gap-0-5 rounded-corners text-medium">
                 <span>Are you open for collaborations?</span>
-                <i class="bx bx-chevron-right-circle"></i>
+                <i class="bx bx-plus-circle"></i>
               </button>
             </h3>
 
-            <div id="panel4-content" aria-hidden="true" aria-labelledby="panel4-heading" class="faq__accordion-content grid">
-              <p class="overflow-hidden">Yes, I'm always open to exciting collaborations! If you have ideas or proposals, hit me up through the contact page!</p>
+            <div id="panel4-content" aria-hidden="true" aria-labelledby="panel4-heading" class="accordion__content grid">
+              <div class="overflow-hidden">
+                <p>Yes, I'm always open to exciting collaborations! If you have ideas or proposals, hit me up through the contact page!</p>
+              </div>
             </div>
-          </div>
-        </div>
+          </li>
+        </ul>
       </section>
 
       <section class="instagram">
