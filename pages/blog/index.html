@@ -46,18 +46,14 @@
             <label for="search-input">Search for posts</label>
             <div class="relative">
               <input type="search" id="search-input" class="search-input card" placeholder="Enter keywords.." />
-              <i class="bx bx-search-alt-2 absolute text-medium"></i>
+              <i class="bx bx-search-alt-2 search-input__icon absolute text-medium"></i>
             </div>
           </div>
 
           <div>
-            <label for="filter-select">Filter by category</label>
-            <select id="filter-select" class="card">
+            <label for="category-select">Filter by category</label>
+            <select id="category-select" class="category-select card">
               <option value="all">All</option>
-              <option value="guide">Guide</option>
-              <option value="gear">Gear</option>
-              <option value="location">Location</option>
-              <option value="tips-n-tricks">Tips & Tricks</option>
             </select>
           </div>
         </form>
@@ -68,7 +64,7 @@
           </li>
         </ul>
 
-        <button class="btn btn-dark">Show more</button>
+        <button class="btn-show-more btn btn-dark block">Show more</button>
       </section>
 
       <section class="instagram">
