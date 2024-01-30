@@ -1,5 +1,4 @@
-import * as ui from "../index.js";
-import * as utils from "../../utils/index.js";
+import * as utils from "../../../utils/index.js";
 
 const featuredPostTemplate = `<img src="" alt="" class="featured-post__image rounded-corners" />
                               <div class="flow">

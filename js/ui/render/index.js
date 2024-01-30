@@ -1,4 +1,4 @@
 export * from "./blogCard.js";
-export * from "./blogPost.js";
-export * from "./popularPosts.js";
-export * from "./featuredPost.js";
+export * from "./home/index.js";
+export * from "./blog/index.js";
+export * from "./blog-post/index.js";

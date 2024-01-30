@@ -1,5 +1,5 @@
-import * as ui from "../index.js";
-import * as utils from "../../utils/index.js";
+import * as ui from "../../index.js";
+import * as utils from "../../../utils/index.js";
 
 const blogPostTemplate = `<span class="blog-card__category rounded-corners"></span>
                           <h1 class="blog-post__title"></h1>

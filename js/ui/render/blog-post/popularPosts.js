@@ -1,4 +1,4 @@
-import * as utils from "../../utils/index.js";
+import * as utils from "../../../utils/index.js";
 
 const popularPostTemplate = `<a href="" class="flex gap-1">
                                <img src="" alt="" class="popular-posts__image rounded-corners" />
