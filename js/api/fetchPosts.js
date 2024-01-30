@@ -1,7 +1,7 @@
 import * as constants from "../constants/index.js";
 
 export async function fetchPosts(apiParams) {
-  const response = await fetch(constants.apiUrl + apiParams);
+  const response = await fetch(constants.apiBaseUrl + constants.apiEndpointPosts + apiParams);
 
   if (response.ok) {
     return await response.json();
@@ -11,7 +11,7 @@ export async function fetchPosts(apiParams) {
 }
 
 export async function fetchPostById(postId) {
-  const response = await fetch(`${constants.apiUrl}/${postId}?_embed`);
+  const response = await fetch(`${constants.apiBaseUrl}${constants.apiEndpointPosts}/${postId}?_embed`);
 
   if (response.ok) {
     return await response.json();
