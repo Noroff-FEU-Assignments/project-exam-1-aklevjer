@@ -21,7 +21,8 @@
   border: 1px solid var(--clr-deep-black);
 }
 
-.blog-card__link:is(:hover, :focus) .blog-card__content__title {
+.blog-card__link:is(:hover, :focus) .blog-card__content__title,
+.popular-posts__link:is(:hover, :focus) .popular-posts__title {
   text-decoration: underline;
   text-underline-offset: 4px;
 }

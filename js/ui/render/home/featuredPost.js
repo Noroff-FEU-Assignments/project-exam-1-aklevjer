@@ -3,7 +3,7 @@ import * as utils from "../../../utils/index.js";
 const featuredPostTemplate = `<img src="" alt="" class="featured-post__image rounded-corners" />
                               <div class="flow">
                                 <h3 class="featured-post__title"></h3>
-                                <div class="bullet-separator flex gap-0-5 text-sm">
+                                <div class="featured-post__meta bullet-separator flex gap-0-5 text-sm">
                                   <div class="flex items-center gap-0-5">
                                     <img src="" alt="" class="featured-post__author-avatar rounded-full" />
                                     <span class="featured-post__author-name"></span>

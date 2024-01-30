@@ -38,7 +38,7 @@ export function createBlogCard(blogPost, isBlogPage) {
   blogCardCategory.textContent = utils.getParsedText(blogPost._embedded["wp:term"][0][0].name);
 
   // Title
-  const blogCardTitle = utils.createHTMLElement(isBlogPage ? "h2" : "h3", ["blog-card__content__title", "truncate-text"]);
+  const blogCardTitle = utils.createHTMLElement(isBlogPage ? "h2" : "h3", ["blog-card__content__title", "h3", "truncate-text"]);
   blogCardTitle.textContent = utils.getParsedText(blogPost.title.rendered);
   blogCardContent.prepend(blogCardTitle);
 

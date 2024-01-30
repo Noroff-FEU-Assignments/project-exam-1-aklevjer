@@ -121,7 +121,8 @@ h2 {
   font-size: var(--fs-xl);
 }
 
-h3 {
+h3,
+.h3 {
   font-size: var(--fs-large);
 }
 
@@ -164,18 +165,19 @@ label {
 /* -------------------------------------------- */
 
 .btn,
-.hover-orange {
+.link-hover {
   font-weight: var(--fw-semibold);
   color: var(--clr-white);
   text-transform: capitalize;
   transition: color var(--tr-linear), background-color var(--tr-linear);
 }
 
-.hover-orange:is(:hover, :focus) {
+.link-hover:is(:hover, :focus) {
   color: var(--clr-light-orange);
 }
 
-.current {
+.current,
+.underline {
   text-decoration: underline var(--clr-light-orange);
   text-underline-offset: 7px;
 }

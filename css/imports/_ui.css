@@ -97,6 +97,11 @@ header {
   margin-top: 7.5rem;
 }
 
+.instagram .underline {
+  text-transform: lowercase;
+  text-decoration-color: var(--clr-black);
+}
+
 .instagram-feed {
   grid-template: 1fr repeat(7, 0) / repeat(auto-fit, minmax(150px, 1fr));
 }
@@ -174,6 +179,10 @@ footer {
 
 .featured-post__container {
   grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+}
+
+.featured-post__meta {
+  --bullet-space: var(--space-0-3);
 }
 
 .featured-post__image {
@@ -258,6 +267,14 @@ footer {
 
 .popular-posts__image {
   max-width: 75px;
+}
+
+.post-search__container {
+  margin-bottom: calc(var(--space-1) * -1);
+}
+
+.post-search__btn {
+  flex-basis: 50px;
 }
 
 /* ----------- Journey Behind & FAQ ----------- */
