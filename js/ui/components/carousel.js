@@ -1,6 +1,7 @@
-import * as constants from "../../constants/index.js";
+const slideGap = 16; // 1rem
+const slideMinPos = 0;
 
-let currentPos = constants.slideMinPos;
+let currentPos = slideMinPos;
 let slideMaxPos = 0;
 let slidesInView = 0;
 
@@ -16,7 +17,7 @@ function updateSlider() {
   const slider = document.querySelector(".carousel");
   const slideItemWidth = slider.firstElementChild.offsetWidth;
 
-  slider.scrollLeft = currentPos * slidesInView * (slideItemWidth + constants.slideGap);
+  slider.scrollLeft = currentPos * slidesInView * (slideItemWidth + slideGap);
 }
 
 function goToSlidePos(slidePos) {
@@ -26,7 +27,7 @@ function goToSlidePos(slidePos) {
 
 function prevSlide() {
   currentPos--;
-  if (currentPos < constants.slideMinPos) {
+  if (currentPos < slideMinPos) {
     currentPos = slideMaxPos;
   }
   updateSlider();
@@ -35,7 +36,7 @@ function prevSlide() {
 function nextSlide() {
   currentPos++;
   if (currentPos > slideMaxPos) {
-    currentPos = constants.slideMinPos;
+    currentPos = slideMinPos;
   }
   updateSlider();
 }
@@ -46,7 +47,7 @@ function monitorScroll(event) {
   const slideItemWidth = slider.firstElementChild.offsetWidth;
   const newPosition = slider.scrollLeft;
 
-  currentPos = Math.round(newPosition / ((slideItemWidth + constants.slideGap) * slidesInView));
+  currentPos = Math.round(newPosition / ((slideItemWidth + slideGap) * slidesInView));
   updatePagination();
 }
 
@@ -60,7 +61,7 @@ function monitorResize(entries) {
   slidesInView = Math.round(sliderWidth / slideItemWidth);
   slideMaxPos = Math.round(slidesAmount / slidesInView) - 1;
 
-  goToSlidePos(constants.slideMinPos);
+  goToSlidePos(slideMinPos);
 }
 
 function initCarouselListeners() {
