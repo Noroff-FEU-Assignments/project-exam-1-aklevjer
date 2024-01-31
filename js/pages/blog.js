@@ -11,7 +11,7 @@ export async function blogPage() {
     ui.initBlogListing(allPosts, blogList);
   } catch (error) {
     console.error(error);
-    ui.showErrorMessage(blogList, "Oops! Failed to load posts. Please try again later.");
+    ui.showAlertMessage(blogList, "error", "Oops! Failed to load posts. Please try again later.");
   }
 
   try {

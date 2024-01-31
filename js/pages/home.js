@@ -13,7 +13,7 @@ export async function homePage() {
     ui.initCarousel();
   } catch (error) {
     console.error(error);
-    ui.showErrorMessage(carousel, "Oops! Failed to load latest posts. Please try again later.");
+    ui.showAlertMessage(carouselContainer, "error", "Oops! Failed to load latest posts. Please try again later.");
   }
 
   try {
@@ -22,6 +22,8 @@ export async function homePage() {
     ui.renderFeaturedPost(featuredPosts[0], featuredPostContainer);
   } catch (error) {
     console.error(error);
-    ui.showErrorMessage(featuredPostContainer, "Oops! Failed to load featured post. Please try again later.");
+    ui.showAlertMessage(featuredPostContainer, "error", "Oops! Failed to load featured post. Please try again later.");
   }
+
+  ui.initNewsletterForm();
 }

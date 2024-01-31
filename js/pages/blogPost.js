@@ -15,9 +15,10 @@ export async function blogPostPage(id) {
     utils.updatePageTitle(blogPostTitle);
 
     ui.renderBlogPost(blogPost, blogPostHero, blogPostArticle);
+    ui.initCommentForm();
   } catch (error) {
     console.error(error);
-    ui.showErrorMessage(blogPostArticle, "Oops! Failed to load blog post. Please try again later.");
+    ui.showAlertMessage(blogPostArticle, "error", "Oops! Failed to load blog post. Please try again later.");
     utils.clearElement(blogPostHero);
   }
 
@@ -27,6 +28,6 @@ export async function blogPostPage(id) {
     ui.renderPopularPosts(popularPosts, popularPostsList);
   } catch (error) {
     console.error(error);
-    ui.showErrorMessage(popularPostsList, "Oops! Failed to load popular posts. Please try again later.");
+    ui.showAlertMessage(popularPostsList, "error", "Oops! Failed to load popular posts. Please try again later.");
   }
 }
