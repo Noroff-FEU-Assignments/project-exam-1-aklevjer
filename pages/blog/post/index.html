@@ -55,20 +55,28 @@
               </div>
             </div>
 
-            <form class="card fluid-padding">
+            <form name="comment" class="card fluid-padding">
               <h2 class="mb-2 border-bottom">Leave a comment</h2>
 
               <label for="name">Name <span class="text-red">*</span></label>
-              <input type="text" id="name" name="name" placeholder="Name" required />
+              <div class="relative">
+                <input type="text" id="name" name="name" placeholder="Name" aria-describedby="name-error" />
+                <i class="bx bxs-error-circle bx-sm input__error-icon absolute text-red hidden"></i>
+                <p id="name-error" role="alert" class="input__error-message text-sm text-red hidden">Name must be at least 5 characters</p>
+              </div>
 
               <label for="email">Email</label>
               <input type="email" id="email" name="email" placeholder="email@example.com" />
 
-              <label for="comment">Comment <span class="text-red">*</span></label>
-              <textarea id="comment" name="comment" placeholder="Comment" required></textarea>
+              <label for="commenttext">Comment <span class="text-red">*</span></label>
+              <div class="relative">
+                <textarea id="commenttext" name="commenttext" placeholder="Comment" aria-describedby="commenttext-error"></textarea>
+                <i class="bx bxs-error-circle bx-sm input__error-icon absolute text-red hidden"></i>
+                <p id="commenttext-error" role="alert" class="input__error-message text-sm text-red hidden">Comment must be at least 15 characters</p>
+              </div>
 
               <input type="submit" value="Post comment" class="btn btn-dark" />
-              <p class="text-sm"><span class="text-red">*</span> Required fields</p>
+              <p class="status-label text-sm"><span class="text-red">*</span> Required fields</p>
             </form>
           </section>
         </div>

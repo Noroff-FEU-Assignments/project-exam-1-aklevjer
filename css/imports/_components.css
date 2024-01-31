@@ -98,6 +98,14 @@
   font-weight: var(--fw-semibold);
 }
 
+/* -------------- Success Message ------------- */
+
+.success-message {
+  gap: var(--space-0-3);
+  font-weight: var(--fw-bold);
+  color: var(--clr-green);
+}
+
 /* ---------------- Image Modal --------------- */
 
 .modal {

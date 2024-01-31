@@ -15,6 +15,7 @@ function validateInput(inputElement) {
     case "name":
       return isLengthValid(inputElement.value, 5);
     case "subject":
+    case "commenttext":
       return isLengthValid(inputElement.value, 15);
     case "message":
       return isLengthValid(inputElement.value, 25);
