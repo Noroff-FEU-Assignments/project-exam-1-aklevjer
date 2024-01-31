@@ -120,12 +120,16 @@
             <h2>Elevate your photography journey with our newsletter</h2>
             <p>Subscribe for exclusive photography tips, the latest updates, and more!</p>
 
-            <form>
+            <form name="newsletter">
               <label for="email">Email <span class="text-red">*</span></label>
-              <input type="email" id="email" name="email" placeholder="email@example.com" required />
+              <div class="relative">
+                <input type="email" id="email" name="email" placeholder="email@example.com" aria-describedby="email-error" />
+                <i class="bx bxs-error-circle bx-sm input__error-icon absolute text-red hidden"></i>
+                <p id="email-error" role="alert" class="input__error-message text-sm text-red hidden">Please enter a valid email address</p>
+              </div>
 
               <input type="submit" value="Subscribe now" class="btn btn-dark" />
-              <p class="text-sm"><span class="text-red">*</span> Required field</p>
+              <p class="status-label text-sm"><span class="text-red">*</span> Required field</p>
             </form>
           </div>
         </div>

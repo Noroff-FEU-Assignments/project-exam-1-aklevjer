@@ -1,10 +1,15 @@
+import * as ui from "../index.js";
 import * as utils from "../../utils/index.js";
 
 function handleContactSubmit(event, inputElements) {
   event.preventDefault();
 
   if (utils.isFormValid(inputElements)) {
-    // Success logic
+    const statusLabel = document.querySelector(".status-label");
+
+    if (statusLabel) {
+      ui.showAlertMessage(statusLabel, "success", "Your message was sent!");
+    }
   }
 }
 
