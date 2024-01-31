@@ -12,7 +12,7 @@ const blogPostTemplate = `<span class="blog-card__category rounded-corners"></sp
                               <i class="bx bx-calendar bx-xs"></i>
                               <time datetime="" class="blog-post__date"></time>
                             </div>
-                            <div class="hidden items-center gap-0-5">
+                            <div class="flex items-center gap-0-5">
                               <i class="bx bx-comment bx-xs"></i>
                               <span class="blog-post__comment-count"></span>
                             </div>

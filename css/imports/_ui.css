@@ -250,6 +250,12 @@ footer {
   cursor: pointer;
 }
 
+/* Blog Post Comments */
+
+.comments__list {
+  --flow-space: var(--space-2);
+}
+
 /* Blog Post Aside */
 
 .blog-post__aside {
