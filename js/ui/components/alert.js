@@ -7,7 +7,7 @@ function createErrorMessage(message) {
   const errorBody = utils.createHTMLElement("p", null, message);
   const errorContent = utils.createHTMLElement("div", null, null, [errorTitle, errorBody]);
 
-  return utils.createHTMLElement("div", ["error-message", "absolute", "flex", "items-center", "gap-1", "rounded-corners"], null, [errorIcon, errorContent]);
+  return utils.createHTMLElement("div", ["error-message", "flex", "items-center", "gap-1", "rounded-corners"], null, [errorIcon, errorContent]);
 }
 
 function createSuccessMessage(message) {
@@ -19,14 +19,7 @@ function createSuccessMessage(message) {
 
 export function showAlertMessage(parentElement, alertType, message) {
   const alertMessage = alertType === "success" ? createSuccessMessage(message) : createErrorMessage(message);
-
-  utils.clearElement(parentElement);
-
-  if (alertType === "success") {
-    parentElement.replaceWith(alertMessage);
-  } else {
-    parentElement.append(alertMessage);
-  }
+  parentElement.replaceWith(alertMessage);
 }
 
 export function toggleInputError(inputElement, showError) {

@@ -39,20 +39,16 @@
 
       <div class="container flex flex-wrap gap-2">
         <div class="blog-post__content">
-          <article class="blog-post__article relative min-h-200 card mb-2 flow fluid-padding">
-            <div class="loading-spinner absolute rounded-full"></div>
+          <article class="blog-post__article card mb-2 flow fluid-padding">
+            <div class="loading-spinner rounded-full"></div>
           </article>
 
           <section>
             <div class="card mb-2 fluid-padding">
-              <h2 class="mb-2 border-bottom">Comments (1)</h2>
-              <div class="flow">
-                <div class="bullet-separator flex items-center gap-0-5">
-                  <h3>John doe</h3>
-                  <span>Jan 23, 2023 </span>
-                </div>
-                <p>Great guide! Can't wait to use leading lines for better compositions.</p>
-              </div>
+              <h2 class="comments__title mb-2 border-bottom">Comments</h2>
+              <ul class="comments__list flow">
+                <li><div class="loading-spinner rounded-full"></div></li>
+              </ul>
             </div>
 
             <form name="comment" class="card fluid-padding">
