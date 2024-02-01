@@ -19,7 +19,10 @@ function createSuccessMessage(message) {
 
 export function showAlertMessage(parentElement, alertType, message) {
   const alertMessage = alertType === "success" ? createSuccessMessage(message) : createErrorMessage(message);
-  parentElement.replaceWith(alertMessage);
+
+  if (parentElement) {
+    parentElement.replaceWith(alertMessage);
+  }
 }
 
 export function toggleInputError(inputElement, showError) {
