@@ -1,22 +1,46 @@
+import * as api from "../../api/index.js";
 import * as ui from "../index.js";
 import * as utils from "../../utils/index.js";
 
-function handleCommentSubmit(event, inputElements) {
-  event.preventDefault();
+async function postNewComment(commentForm, postId) {
+  const statusLabel = document.querySelector(".status-label");
+  const commentsList = document.querySelector(".comments__list");
 
-  if (utils.isFormValid(inputElements)) {
-    const statusLabel = document.querySelector(".status-label");
+  const formData = new FormData(commentForm);
+  const commentData = JSON.stringify({
+    post: postId,
+    author_name: formData.get("name"),
+    author_email: formData.get("email"),
+    content: formData.get("commenttext"),
+  });
 
-    if (statusLabel) {
-      ui.showAlertMessage(statusLabel, "success", "Your comment was sent!");
-    }
+  try {
+    await api.postComment(commentData);
+    const comments = await api.fetchComments(postId);
+
+    ui.renderComments(commentsList, comments);
+    ui.showAlertMessage(statusLabel, "success", "Your comment was posted!");
+
+    commentForm.reset();
+  } catch (error) {
+    console.log(error);
+    ui.showAlertMessage(statusLabel, "error", "Oops! Failed to post comment. Please try again later.");
   }
 }
 
-export function initCommentForm() {
+function handleCommentSubmit(event, inputElements, postId) {
+  event.preventDefault();
+
+  if (utils.isFormValid(inputElements)) {
+    const commentForm = event.target;
+    postNewComment(commentForm, postId);
+  }
+}
+
+export function initCommentForm(postId) {
   const commentForm = document.forms.comment;
-  const inputElements = [commentForm.name, commentForm.commenttext];
+  const inputElements = [commentForm.name, commentForm.email, commentForm.commenttext];
 
   utils.initInputListeners(inputElements);
-  commentForm.addEventListener("submit", (event) => handleCommentSubmit(event, inputElements));
+  commentForm.addEventListener("submit", (event) => handleCommentSubmit(event, inputElements, postId));
 }

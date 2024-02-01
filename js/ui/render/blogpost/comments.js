@@ -48,8 +48,8 @@ function renderCommentCount(commentCount) {
   const blogPostCommentCount = document.querySelector(".blog-post__comment-count");
 
   if (commentsTitle && blogPostCommentCount) {
-    commentsTitle.textContent += ` (${commentCount})`;
-    blogPostCommentCount.textContent = `${commentCount} Comment${commentCount !== 1 && "s"}`;
+    commentsTitle.textContent = `Comments (${commentCount})`;
+    blogPostCommentCount.textContent = `${commentCount} Comment${commentCount !== 1 ? "s" : ""}`;
   }
 }
 
