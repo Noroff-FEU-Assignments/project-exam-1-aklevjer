@@ -12,7 +12,7 @@ async function sendContactForm(contactForm) {
     contactForm.reset();
   } catch (error) {
     console.log(error);
-    ui.showAlertMessage(statusLabel, "error", "Oops! Failed to submit comment. Please try again later.");
+    ui.showAlertMessage(statusLabel, "error", "Oops! Failed to submit message. Please try again later.");
   }
 }
 
