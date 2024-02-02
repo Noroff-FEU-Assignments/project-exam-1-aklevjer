@@ -6,10 +6,7 @@ function handleNewsletterSubmit(event, inputElements) {
 
   if (utils.isFormValid(inputElements)) {
     const statusLabel = document.querySelector(".status-label");
-
-    if (statusLabel) {
-      ui.showAlertMessage(statusLabel, "success", "Thank you for subscribing!");
-    }
+    ui.showAlertMessage(statusLabel, "success", "Thank you for subscribing!");
   }
 }
 
