@@ -1,7 +1,7 @@
 import * as constants from "../constants/index.js";
 
 export async function fetchComments(postId) {
-  const response = await fetch(`${constants.apiBaseUrl}${constants.apiEndpointComments}?post=${postId}`);
+  const response = await fetch(`${constants.apiUrlComments}?post=${postId}`);
 
   if (response.ok) {
     return await response.json();

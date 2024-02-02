@@ -1,8 +1,8 @@
 import * as constants from "../constants/index.js";
 
 export async function postComment(commentData) {
-  const response = await fetch(constants.apiBaseUrl + constants.apiEndpointComments, {
-    method: "post",
+  const response = await fetch(constants.apiUrlComments, {
+    method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
