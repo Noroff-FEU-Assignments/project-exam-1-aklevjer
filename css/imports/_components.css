@@ -90,7 +90,7 @@
 }
 
 .input__error-icon {
-  top: var(--space-1);
+  top: calc(var(--space-0-3) * 3);
   right: var(--space-0-5);
 }
 
