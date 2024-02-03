@@ -42,12 +42,11 @@ function nextSlide() {
 }
 
 // Monitor the scroll event to update the current position and pagination
-function monitorScroll(event) {
-  const slider = event.target;
+function monitorScroll(slider) {
   const slideItemWidth = slider.firstElementChild.offsetWidth;
-  const newPosition = slider.scrollLeft;
+  const slideNewPosition = slider.scrollLeft;
 
-  currentPos = Math.round(newPosition / ((slideItemWidth + slideGap) * slidesInView));
+  currentPos = Math.round(slideNewPosition / ((slideItemWidth + slideGap) * slidesInView));
   updatePagination();
 }
 
@@ -81,7 +80,7 @@ function initCarouselMonitoring() {
   const slider = document.querySelector(".carousel");
   const resizeObserver = new ResizeObserver((entries) => monitorResize(entries));
 
-  slider.addEventListener("scroll", monitorScroll);
+  slider.addEventListener("scroll", () => monitorScroll(slider));
   resizeObserver.observe(slider);
 }
 
