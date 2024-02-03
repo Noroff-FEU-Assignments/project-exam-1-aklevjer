@@ -56,6 +56,7 @@ function renderModal(image) {
 
 export function initModal(images) {
   images.forEach((image) => {
+    image.classList.add("blog-post__article__image", "cursor-pointer", "rounded-corners");
     image.addEventListener("click", () => renderModal(image));
   });
 }

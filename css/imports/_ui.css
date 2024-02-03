@@ -162,7 +162,6 @@ footer {
 
 .pagination__btn {
   padding: var(--space-0-5);
-  cursor: pointer;
   border: 1px solid var(--clr-dark-orange);
 }
 
@@ -206,7 +205,7 @@ footer {
 /* --------------- Blog Listing --------------- */
 
 .blog-list {
-  grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(420px, 100%), 1fr));
 }
 
 .search-filter-form > div {
@@ -245,9 +244,8 @@ footer {
   font-weight: var(--fw-bold);
 }
 
-.blog-post__article img {
+.blog-post__article__image {
   max-height: 400px;
-  cursor: pointer;
 }
 
 /* Blog Post Comments */
