@@ -107,6 +107,10 @@
   min-height: 200px;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
 .rounded-corners {
   border-radius: var(--border-radius);
 }
