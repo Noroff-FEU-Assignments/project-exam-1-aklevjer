@@ -23,7 +23,7 @@ async function postNewComment(commentForm, postId) {
 
     commentForm.reset();
   } catch (error) {
-    console.log(error);
+    console.error(error);
     ui.showAlertMessage(statusLabel, "error", "Oops! Failed to post comment. Please try again later.");
   }
 }

@@ -11,7 +11,7 @@ async function sendContactForm(contactForm) {
     ui.showAlertMessage(statusLabel, "success", "Your message was sent!");
     contactForm.reset();
   } catch (error) {
-    console.log(error);
+    console.error(error);
     ui.showAlertMessage(statusLabel, "error", "Oops! Failed to send message. Please try again later.");
   }
 }
