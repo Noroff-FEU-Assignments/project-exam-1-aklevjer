@@ -7,34 +7,60 @@ let currentPage = 1;
 let totalPages;
 let allPosts = [];
 
-function renderPosts(blogList) {
-  const startIndex = (currentPage - 1) * postsPerPage;
-  const endIndex = startIndex + postsPerPage;
+function renderPosts(posts, clearElement) {
+  const blogList = document.querySelector(".blog-list");
 
-  const postsToRender = allPosts.slice(startIndex, endIndex);
+  if (clearElement) {
+    utils.clearElement(blogList);
+  }
 
-  postsToRender.forEach((post) => {
+  posts.forEach((post) => {
     const blogCard = ui.createBlogCard(post, true);
     blogList.append(blogCard);
   });
 }
 
-function showMore(blogList, showMoreBtn) {
+function getPaginatedPosts() {
+  const startIndex = (currentPage - 1) * postsPerPage;
+  const endIndex = startIndex + postsPerPage;
+
+  return allPosts.slice(startIndex, endIndex);
+}
+
+function hideShowMoreBtn(shouldHide) {
+  const showMoreBtn = document.querySelector(".btn-show-more");
+  showMoreBtn.classList.toggle("hidden", shouldHide);
+}
+
+function showMore() {
   currentPage++;
-  renderPosts(blogList);
+  renderPosts(getPaginatedPosts(), false);
 
   if (currentPage >= totalPages) {
-    showMoreBtn.classList.add("hidden");
+    hideShowMoreBtn(true);
   }
 }
 
-export function initBlogListing(blogPosts, blogList) {
+function initShowMoreBtn() {
+  const showMoreBtn = document.querySelector(".btn-show-more");
+  showMoreBtn.addEventListener("click", showMore);
+}
+
+export function handleFilteredPosts(filteredPosts, renderAll) {
+  const postsToRender = renderAll ? getPaginatedPosts() : filteredPosts;
+
+  currentPage = 1;
+  hideShowMoreBtn(!renderAll);
+  renderPosts(postsToRender, true);
+}
+
+export function initBlogListing(blogPosts, searchQuery) {
   allPosts = blogPosts;
   totalPages = Math.ceil(allPosts.length / postsPerPage);
 
-  utils.clearElement(blogList);
-  renderPosts(blogList);
+  initShowMoreBtn();
 
-  const showMoreBtn = document.querySelector(".btn-show-more");
-  showMoreBtn.addEventListener("click", () => showMore(blogList, showMoreBtn));
+  if (!searchQuery) {
+    renderPosts(getPaginatedPosts(), true);
+  }
 }

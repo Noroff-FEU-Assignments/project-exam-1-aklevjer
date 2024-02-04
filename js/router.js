@@ -13,7 +13,7 @@ export async function router() {
     case "/pages/blog":
     case "/pages/blog/":
     case "/pages/blog/index.html":
-      await pages.blogPage();
+      await pages.blogPage(params.search);
       break;
 
     case "/pages/blog/post":

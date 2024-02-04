@@ -2,13 +2,16 @@ import * as api from "../api/index.js";
 import * as constants from "../constants/index.js";
 import * as ui from "../ui/index.js";
 
-export async function blogPage() {
+export async function blogPage(searchQuery) {
   const blogList = document.querySelector(".blog-list");
   const categorySelect = document.querySelector(".category-select");
 
   try {
     const allPosts = await api.fetchPosts(constants.apiParamsAll);
-    ui.initBlogListing(allPosts, blogList);
+
+    ui.initBlogListing(allPosts, searchQuery);
+    ui.initFilterBySearch(allPosts, searchQuery);
+    ui.initFilterByCategory(allPosts);
   } catch (error) {
     console.error(error);
     ui.showAlertMessage(blogList, "error", "Oops! Failed to load posts. Please try again later.");
