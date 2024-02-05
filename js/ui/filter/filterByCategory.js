@@ -1,18 +1,21 @@
 import * as ui from "../index.js";
 
-function filterPostsByCategory(event, allPosts) {
-  const selectedCategory = event.target.value;
-  const renderAll = selectedCategory === "all";
-
-  const filteredPosts = allPosts.filter((post) => {
+function filterPostsByCategory(selectedCategory, allPosts) {
+  return allPosts.filter((post) => {
     const categorySlug = post._embedded["wp:term"][0][0].slug;
     return categorySlug === selectedCategory;
   });
+}
+
+function handleCategory(event, allPosts) {
+  const selectedCategory = event.target.value;
+  const renderAll = selectedCategory === "all";
+  const filteredPosts = filterPostsByCategory(selectedCategory, allPosts);
 
   ui.handleFilteredPosts(filteredPosts, renderAll);
 }
 
 export function initFilterByCategory(allPosts) {
   const categorySelect = document.querySelector(".category-select");
-  categorySelect.addEventListener("change", (event) => filterPostsByCategory(event, allPosts));
+  categorySelect.addEventListener("change", (event) => handleCategory(event, allPosts));
 }
