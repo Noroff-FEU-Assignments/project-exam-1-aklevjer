@@ -8,15 +8,15 @@ let totalPages;
 let allPosts = [];
 
 function renderPosts(posts, clearElement) {
-  const blogList = document.querySelector(".blog-list");
+  const blogPostsList = document.querySelector(".blog-posts__list");
 
   if (clearElement) {
-    utils.clearElement(blogList);
+    utils.clearElement(blogPostsList);
   }
 
   posts.forEach((post) => {
     const blogCard = ui.createBlogCard(post, true);
-    blogList.append(blogCard);
+    blogPostsList.append(blogCard);
   });
 }
 
@@ -28,7 +28,7 @@ function getPaginatedPosts() {
 }
 
 function hideShowMoreBtn(shouldHide) {
-  const showMoreBtn = document.querySelector(".btn-show-more");
+  const showMoreBtn = document.querySelector(".blog-posts__btn-show-more");
   showMoreBtn.classList.toggle("hidden", shouldHide);
 }
 
@@ -41,8 +41,8 @@ function showMore() {
   }
 }
 
-function initShowMoreBtn() {
-  const showMoreBtn = document.querySelector(".btn-show-more");
+function initShowMore() {
+  const showMoreBtn = document.querySelector(".blog-posts__btn-show-more");
   showMoreBtn.addEventListener("click", showMore);
 }
 
@@ -57,7 +57,7 @@ export function initBlogListing(blogPosts, searchQuery) {
   allPosts = blogPosts;
   totalPages = Math.ceil(allPosts.length / postsPerPage);
 
-  initShowMoreBtn();
+  initShowMore();
 
   if (!searchQuery) {
     renderPosts(getPaginatedPosts(), true);

@@ -1,10 +1,10 @@
 import * as utils from "../../../utils/index.js";
 
-const popularPostTemplate = `<a href="" class="popular-posts__link flex gap-1">
-                               <img src="" alt="" class="popular-posts__image rounded-corners" />
+const popularPostTemplate = `<a href="" class="blog-post__popular-post__link flex gap-1">
+                               <img src="" alt="" class="blog-post__popular-post__image rounded-corners" />
                                <div>
-                                 <span class="popular-posts__category"></span>
-                                 <h3 class="popular-posts__title text-medium truncate-text"></h3>
+                                 <span class="blog-post__popular-post__category"></span>
+                                 <h3 class="blog-post__popular-post__title text-medium truncate-text"></h3>
                                </div>
                              </a>`;
 
@@ -12,10 +12,10 @@ function createPopularPost(blogPost) {
   const popularPost = utils.createHTMLElement("li");
   popularPost.innerHTML = popularPostTemplate;
 
-  const popularPostLink = popularPost.querySelector(".popular-posts__link");
-  const popularPostImage = popularPost.querySelector(".popular-posts__image");
-  const popularPostCategory = popularPost.querySelector(".popular-posts__category");
-  const popularPostTitle = popularPost.querySelector(".popular-posts__title");
+  const popularPostLink = popularPost.querySelector(".blog-post__popular-post__link");
+  const popularPostImage = popularPost.querySelector(".blog-post__popular-post__image");
+  const popularPostCategory = popularPost.querySelector(".blog-post__popular-post__category");
+  const popularPostTitle = popularPost.querySelector(".blog-post__popular-post__title");
 
   // Link
   popularPostLink.href = `/pages/blog/post/?id=${blogPost.id}`;

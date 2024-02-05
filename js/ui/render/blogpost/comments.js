@@ -1,18 +1,18 @@
 import * as utils from "../../../utils/index.js";
 
 const commentTemplate = `<div class="bullet-separator flex items-center gap-0-5">
-                           <h3 class="comment__author"></h3>
-                           <time datetime="" class="comment__date"></time>
+                           <h3 class="blog-post__comment__author"></h3>
+                           <time datetime="" class="blog-post__comment__date"></time>
                          </div>
-                         <p class="comment__body"></p>`;
+                         <p class="blog-post__comment__body"></p>`;
 
 function createComment(comment) {
   const commentContainer = utils.createHTMLElement("li", "flow");
   commentContainer.innerHTML = commentTemplate;
 
-  const commentAuthor = commentContainer.querySelector(".comment__author");
-  const commentDate = commentContainer.querySelector(".comment__date");
-  const commentBody = commentContainer.querySelector(".comment__body");
+  const commentAuthor = commentContainer.querySelector(".blog-post__comment__author");
+  const commentDate = commentContainer.querySelector(".blog-post__comment__date");
+  const commentBody = commentContainer.querySelector(".blog-post__comment__body");
 
   // Comment author
   commentAuthor.textContent = comment.author_name;
@@ -44,7 +44,7 @@ function renderEmptyCommentText(commentsList) {
 }
 
 function renderCommentCount(commentCount) {
-  const commentsTitle = document.querySelector(".comments__title");
+  const commentsTitle = document.querySelector(".blog-post__comments__title");
   const blogPostCommentCount = document.querySelector(".blog-post__comment-count");
 
   if (commentsTitle && blogPostCommentCount) {

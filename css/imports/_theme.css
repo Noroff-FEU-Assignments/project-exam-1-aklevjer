@@ -122,8 +122,7 @@ h2 {
   font-size: var(--fs-xl);
 }
 
-h3,
-.h3 {
+h3 {
   font-size: var(--fs-large);
 }
 
@@ -205,13 +204,16 @@ label {
   background-color: var(--clr-light-orange);
 }
 
-.btn-light:hover {
+.btn-light:hover,
+.btn-dark {
   color: var(--clr-white);
+}
+
+.btn-light:hover {
   background-color: transparent;
 }
 
 .btn-dark {
-  color: var(--clr-white);
   background-color: var(--clr-dark-orange);
 }
 

@@ -3,7 +3,7 @@ import * as constants from "../constants/index.js";
 import * as ui from "../ui/index.js";
 
 export async function blogPage(searchQuery) {
-  const blogList = document.querySelector(".blog-list");
+  const blogPostsList = document.querySelector(".blog-posts__list");
   const categorySelect = document.querySelector(".category-select");
 
   try {
@@ -14,7 +14,7 @@ export async function blogPage(searchQuery) {
     ui.initFilterByCategory(allPosts);
   } catch (error) {
     console.error(error);
-    ui.showAlertMessage(blogList, "error", "Oops! Failed to load posts. Please try again later.");
+    ui.showAlertMessage(blogPostsList, "error", "Oops! Failed to load posts. Please try again later.");
   }
 
   try {

@@ -33,6 +33,7 @@
     <header class="flex">
       <div class="container flex items-center justify-between gap-1">
         <a href="/"><img src="/images/shared/logo.png" alt="Shutter Journey logo" class="logo" /></a>
+
         <nav class="header__nav">
           <ul class="flex flex-auto-dir items-center gap-2">
             <li><a href="/" class="link-hover current" aria-current="page">Home</a></li>
@@ -41,6 +42,7 @@
             <li><a href="/pages/contact/" class="link-hover">Contact</a></li>
           </ul>
         </nav>
+
         <button class="btn-burger btn" aria-expanded="false">
           <i class="bx bx-menu bx-sm"></i>
           <span class="sr-only">Menu</span>
@@ -51,6 +53,7 @@
     <main>
       <section class="hero home-hero grid">
         <img src="/images/home/home-hero.jpg" alt="A Sony camera placed in a field with brownish-yellow grass" class="home-hero__image" />
+
         <div class="home-hero__content flow">
           <h1>Dive into the pure <span class="block">essence of photography!</span></h1>
           <p class="home-hero__body">Discover gear, guides, and captivating locations with Shutter Journey - your visual storytelling companion. Embark on your journey now!</p>
@@ -131,7 +134,7 @@
       </section>
 
       <section class="newsletter container card flex flex-wrap">
-        <div class="flex justify-center">
+        <div class="flex items-center justify-center">
           <div class="flow fluid-padding text-short">
             <h2>Elevate your photography journey with our newsletter</h2>
             <p>Subscribe for exclusive photography tips, the latest updates, and more!</p>
@@ -139,9 +142,9 @@
             <form name="newsletter">
               <label for="email">Email <span class="text-red">*</span></label>
               <div class="relative">
-                <input type="email" id="email" name="email" placeholder="email@example.com" aria-describedby="email-error" />
+                <input type="email" id="email" name="email" placeholder="email@example.com" />
                 <i class="bx bxs-error-circle bx-sm input__error-icon absolute text-red hidden"></i>
-                <p id="email-error" role="alert" class="input__error-message text-sm text-red hidden">Please enter a valid email address</p>
+                <p class="input__error-message text-sm text-red hidden">Please enter a valid email address</p>
               </div>
 
               <input type="submit" value="Subscribe now" class="btn btn-dark" />
@@ -156,58 +159,58 @@
       <section class="instagram">
         <h2 class="container mb-2 text-center">Follow <a href="#" class="underline">@shutterjourney</a> on Instagram!</h2>
 
-        <ul class="instagram-feed grid">
+        <ul class="instagram__feed grid">
           <li class="overflow-hidden">
-            <a href="#" class="instagram-feed__link relative block">
+            <a href="#" class="instagram__feed__link relative block">
               <img src="/images/shared/instagram/ig-1.jpg" alt="Turquoise waters of Lake Louise, Canada on Instagram" />
               <i class="bx bxl-instagram bx-md absolute grid place-items-center"></i>
             </a>
           </li>
 
           <li class="overflow-hidden">
-            <a href="#" class="instagram-feed__link relative block">
+            <a href="#" class="instagram__feed__link relative block">
               <img src="/images/shared/instagram/ig-2.jpg" alt="Black metal bridge under gray clouds in Copenhagen, Denmark on Instagram" />
               <i class="bx bxl-instagram bx-md absolute grid place-items-center"></i>
             </a>
           </li>
 
           <li class="overflow-hidden">
-            <a href="#" class="instagram-feed__link relative block">
+            <a href="#" class="instagram__feed__link relative block">
               <img src="/images/shared/instagram/ig-3.jpg" alt="Foggy mountains in Alaska, United States on Instagram" />
               <i class="bx bxl-instagram bx-md absolute grid place-items-center"></i>
             </a>
           </li>
 
           <li class="overflow-hidden">
-            <a href="#" class="instagram-feed__link relative block">
+            <a href="#" class="instagram__feed__link relative block">
               <img src="/images/shared/instagram/ig-4.jpg" alt="Train traveling in city at night in Chicago, United States on Instagram" />
               <i class="bx bxl-instagram bx-md absolute grid place-items-center"></i>
             </a>
           </li>
 
           <li class="overflow-hidden">
-            <a href="#" class="instagram-feed__link relative block">
+            <a href="#" class="instagram__feed__link relative block">
               <img src="/images/shared/instagram/ig-5.jpg" alt="Wooden house near Emerald Lake, Canada during winter on Instagram" />
               <i class="bx bxl-instagram bx-md absolute grid place-items-center"></i>
             </a>
           </li>
 
           <li class="overflow-hidden">
-            <a href="#" class="instagram-feed__link relative block">
+            <a href="#" class="instagram__feed__link relative block">
               <img src="/images/shared/instagram/ig-6.jpg" alt="Old brown church under stary night on Instagram" />
               <i class="bx bxl-instagram bx-md absolute grid place-items-center"></i>
             </a>
           </li>
 
           <li class="overflow-hidden">
-            <a href="#" class="instagram-feed__link relative block">
+            <a href="#" class="instagram__feed__link relative block">
               <img src="/images/shared/instagram/ig-7.jpg" alt="Wet streets of New York, United States on Instagram" />
               <i class="bx bxl-instagram bx-md absolute grid place-items-center"></i>
             </a>
           </li>
 
           <li class="overflow-hidden">
-            <a href="#" class="instagram-feed__link relative block">
+            <a href="#" class="instagram__feed__link relative block">
               <img src="/images/shared/instagram/ig-8.jpg" alt="Drone shot of a river in British Columbia, Canada on Instagram" />
               <i class="bx bxl-instagram bx-md absolute grid place-items-center"></i>
             </a>

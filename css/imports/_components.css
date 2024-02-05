@@ -2,9 +2,23 @@
 /*                  Components                  */
 /* -------------------------------------------- */
 
+/* ------------------- Logo ------------------- */
+
 .logo {
   max-width: 200px;
   height: fit-content;
+}
+
+/* --------------- Search Input --------------- */
+
+.search-input {
+  padding-left: var(--space-2);
+}
+
+.search-input__icon {
+  top: calc(50% - var(--space-0-3));
+  left: var(--space-0-5);
+  transform: translateY(-50%);
 }
 
 /* ------------------- Cards ------------------ */
@@ -22,7 +36,7 @@
 }
 
 .blog-card__link:is(:hover, :focus) .blog-card__content__title,
-.popular-posts__link:is(:hover, :focus) .popular-posts__title {
+.blog-post__popular-post__link:is(:hover, :focus) .blog-post__popular-post__title {
   text-decoration: underline;
   text-underline-offset: 4px;
 }
@@ -189,6 +203,7 @@
 }
 
 /* ---------------- Accordions ---------------- */
+/* Inspiration: https://www.youtube.com/watch?v=WJERnXiFFug */
 
 .accordion__header {
   width: 100%;
@@ -210,6 +225,6 @@
   grid-template-rows: 1fr;
 }
 
-.accordion__content p {
+.accordion__content__body {
   padding: var(--space-1);
 }
