@@ -1,23 +1,23 @@
 import * as ui from "../index.js";
 import * as utils from "../../utils/index.js";
 
-function filterPostsBySearch(event, allPosts) {
-  const searchQuery = event.target.value;
-  const renderAll = searchQuery.trim() === "";
-
-  const filteredPosts = allPosts.filter((post) => {
+function filterPostsBySearch(searchQuery, allPosts) {
+  return allPosts.filter((post) => {
     const parsedTitle = utils.getParsedText(post.title.rendered);
     return parsedTitle.toLowerCase().includes(searchQuery.toLowerCase());
   });
+}
+
+function handleSearch(event, allPosts) {
+  const searchQuery = event.target.value;
+  const renderAll = searchQuery.trim() === "";
+  const filteredPosts = filterPostsBySearch(searchQuery, allPosts);
 
   ui.handleFilteredPosts(filteredPosts, renderAll);
 }
 
 function initialSearch(initialSearchQuery, allPosts, searchInput) {
-  const filteredPosts = allPosts.filter((post) => {
-    const parsedTitle = utils.getParsedText(post.title.rendered);
-    return parsedTitle.toLowerCase().includes(initialSearchQuery.toLowerCase());
-  });
+  const filteredPosts = filterPostsBySearch(initialSearchQuery, allPosts);
 
   searchInput.value = initialSearchQuery;
   ui.handleFilteredPosts(filteredPosts, false);
@@ -25,7 +25,9 @@ function initialSearch(initialSearchQuery, allPosts, searchInput) {
 
 export function initFilterBySearch(allPosts, initialSearchQuery) {
   const searchInput = document.querySelector(".search-input");
-  searchInput.addEventListener("input", (event) => filterPostsBySearch(event, allPosts));
+  const processInput = utils.debounce((event) => handleSearch(event, allPosts));
+
+  searchInput.addEventListener("input", processInput);
 
   if (initialSearchQuery) {
     initialSearch(initialSearchQuery, allPosts, searchInput);
