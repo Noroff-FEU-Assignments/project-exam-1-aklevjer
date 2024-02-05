@@ -48,7 +48,6 @@ function initShowMoreBtn() {
 
 export function handleFilteredPosts(filteredPosts, renderAll) {
   const postsToRender = renderAll ? getPaginatedPosts() : filteredPosts;
-
   currentPage = 1;
   hideShowMoreBtn(!renderAll);
   renderPosts(postsToRender, true);
@@ -62,5 +61,6 @@ export function initBlogListing(blogPosts, searchQuery) {
 
   if (!searchQuery) {
     renderPosts(getPaginatedPosts(), true);
+    hideShowMoreBtn(false);
   }
 }
