@@ -3,17 +3,17 @@ import * as constants from "../constants/index.js";
 import * as ui from "../ui/index.js";
 
 export async function homePage() {
-  const carouselContainer = document.querySelector(".carousel");
+  const carouselTrack = document.querySelector(".carousel__track");
   const featuredPostContainer = document.querySelector(".featured-post__container");
 
   try {
     const latestPosts = await api.fetchPosts(constants.apiParamsLatest);
 
-    ui.renderCarousel(latestPosts, carouselContainer);
+    ui.renderCarousel(latestPosts, carouselTrack);
     ui.initCarousel();
   } catch (error) {
     console.error(error);
-    ui.showAlertMessage(carouselContainer, "error", "Oops! Failed to load latest posts. Please try again later.");
+    ui.showAlertMessage(carouselTrack, "error", "Oops! Failed to load latest posts. Please try again later.");
   }
 
   try {

@@ -6,23 +6,23 @@ let slideMaxPos = 0;
 let slidesInView = 0;
 
 function updatePagination() {
-  const prevPaginationBtn = document.querySelector(".active-pagination");
-  prevPaginationBtn?.classList.remove("active-pagination");
+  const prevPaginationBtn = document.querySelector(".pagination-current");
+  prevPaginationBtn?.classList.remove("pagination-current");
 
-  const paginationBtns = document.querySelectorAll(".pagination__btn");
-  paginationBtns[currentPos]?.classList.add("active-pagination");
+  const paginationBtns = document.querySelectorAll(".carousel__pagination__btn");
+  paginationBtns[currentPos]?.classList.add("pagination-current");
 }
 
-function updateSlider() {
-  const slider = document.querySelector(".carousel");
-  const slideItemWidth = slider.firstElementChild.offsetWidth;
+function updateCarousel() {
+  const carouselTrack = document.querySelector(".carousel__track");
+  const slideItemWidth = carouselTrack.firstElementChild.offsetWidth;
 
-  slider.scrollLeft = currentPos * slidesInView * (slideItemWidth + slideGap);
+  carouselTrack.scrollLeft = currentPos * slidesInView * (slideItemWidth + slideGap);
 }
 
 function goToSlidePos(slidePos) {
   currentPos = slidePos;
-  updateSlider();
+  updateCarousel();
 }
 
 function prevSlide() {
@@ -30,7 +30,7 @@ function prevSlide() {
   if (currentPos < slideMinPos) {
     currentPos = slideMaxPos;
   }
-  updateSlider();
+  updateCarousel();
 }
 
 function nextSlide() {
@@ -38,13 +38,13 @@ function nextSlide() {
   if (currentPos > slideMaxPos) {
     currentPos = slideMinPos;
   }
-  updateSlider();
+  updateCarousel();
 }
 
 // Monitor the scroll event to update the current position and pagination
-function monitorScroll(slider) {
-  const slideItemWidth = slider.firstElementChild.offsetWidth;
-  const slideNewPosition = slider.scrollLeft;
+function monitorScroll(carouselTrack) {
+  const slideItemWidth = carouselTrack.firstElementChild.offsetWidth;
+  const slideNewPosition = carouselTrack.scrollLeft;
 
   currentPos = Math.round(slideNewPosition / ((slideItemWidth + slideGap) * slidesInView));
   updatePagination();
@@ -52,36 +52,36 @@ function monitorScroll(slider) {
 
 // Monitor the resizing of the carousel to update the amount of slides in view and max position
 function monitorResize(entries) {
-  const slider = entries[0];
-  const sliderWidth = slider.contentRect.width;
-  const slideItemWidth = slider.target.firstElementChild.offsetWidth;
-  const slidesAmount = slider.target.children.length;
+  const carouselTrack = entries[0];
+  const carouselTrackWidth = carouselTrack.contentRect.width;
+  const slideItemWidth = carouselTrack.target.firstElementChild.offsetWidth;
+  const slidesAmount = carouselTrack.target.children.length;
 
-  slidesInView = Math.round(sliderWidth / slideItemWidth);
+  slidesInView = Math.round(carouselTrackWidth / slideItemWidth);
   slideMaxPos = Math.round(slidesAmount / slidesInView) - 1;
 
   goToSlidePos(slideMinPos);
 }
 
 function initCarouselListeners() {
-  const prevBtn = document.querySelector(".prev-button");
-  const nextBtn = document.querySelector(".next-button");
-  const paginationBtns = document.querySelectorAll(".pagination__btn");
+  const carouselPrevBtn = document.querySelector(".carousel__btn-prev");
+  const carouselNextBtn = document.querySelector(".carousel__btn-next");
+  const carouselPaginationBtns = document.querySelectorAll(".carousel__pagination__btn");
 
-  prevBtn.addEventListener("click", prevSlide);
-  nextBtn.addEventListener("click", nextSlide);
+  carouselPrevBtn.addEventListener("click", prevSlide);
+  carouselNextBtn.addEventListener("click", nextSlide);
 
-  paginationBtns.forEach((btn, i) => {
+  carouselPaginationBtns.forEach((btn, i) => {
     btn.addEventListener("click", () => goToSlidePos(i));
   });
 }
 
 function initCarouselMonitoring() {
-  const slider = document.querySelector(".carousel");
+  const carouselTrack = document.querySelector(".carousel__track");
   const resizeObserver = new ResizeObserver((entries) => monitorResize(entries));
 
-  slider.addEventListener("scroll", () => monitorScroll(slider));
-  resizeObserver.observe(slider);
+  carouselTrack.addEventListener("scroll", () => monitorScroll(carouselTrack));
+  resizeObserver.observe(carouselTrack);
 }
 
 export function initCarousel() {

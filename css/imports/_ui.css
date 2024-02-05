@@ -140,35 +140,6 @@ footer {
 /*                   Sections                   */
 /* -------------------------------------------- */
 
-/* ----------------- Carousel ----------------- */
-
-.carousel {
-  grid-auto-flow: column;
-  grid-auto-columns: 100%;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  scrollbar-width: none;
-  scroll-snap-type: x mandatory;
-}
-
-.carousel::-webkit-scrollbar {
-  display: none;
-}
-
-.prev-button,
-.next-button {
-  padding: 0;
-}
-
-.pagination__btn {
-  padding: var(--space-0-5);
-  border: 1px solid var(--clr-dark-orange);
-}
-
-.active-pagination {
-  background-color: var(--clr-dark-orange);
-}
-
 /* --------------- Featured Post -------------- */
 
 .featured-post {

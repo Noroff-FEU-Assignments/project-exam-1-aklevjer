@@ -107,6 +107,36 @@
   font-weight: var(--fw-semibold);
 }
 
+/* ----------------- Carousel ----------------- */
+/* Inspiration: https://www.codingnepalweb.com/draggable-card-slider-html-css-javascript/ */
+
+.carousel__track {
+  grid-auto-flow: column;
+  grid-auto-columns: 100%;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+}
+
+.carousel__track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel__btn-prev,
+.carousel__btn-next {
+  padding: 0;
+}
+
+.carousel__pagination__btn {
+  padding: var(--space-0-5);
+  border: 1px solid var(--clr-dark-orange);
+}
+
+.pagination-current {
+  background-color: var(--clr-dark-orange);
+}
+
 /* ---------------- Image Modal --------------- */
 
 .modal {
