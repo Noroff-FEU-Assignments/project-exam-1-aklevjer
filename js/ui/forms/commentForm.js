@@ -4,7 +4,7 @@ import * as utils from "../../utils/index.js";
 
 async function postNewComment(commentForm, postId) {
   const statusLabel = document.querySelector(".status-label");
-  const commentsList = document.querySelector(".comments__list");
+  const commentsList = document.querySelector(".blog-post__comments__list");
 
   const formData = new FormData(commentForm);
   const commentData = JSON.stringify({
