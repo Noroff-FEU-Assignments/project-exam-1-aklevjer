@@ -10,10 +10,10 @@ function filterPostsBySearch(searchQuery, allPosts) {
 
 function handleSearch(event, allPosts) {
   const searchQuery = event.target.value;
-  const renderAll = searchQuery.trim() === "";
+  const shouldRenderAll = searchQuery.trim() === "";
   const filteredPosts = filterPostsBySearch(searchQuery, allPosts);
 
-  ui.handleFilteredPosts(filteredPosts, renderAll);
+  ui.handleFilteredPosts(filteredPosts, shouldRenderAll);
 }
 
 function initialSearch(initialSearchQuery, allPosts, searchInput) {

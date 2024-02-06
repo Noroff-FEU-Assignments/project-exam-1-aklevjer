@@ -9,10 +9,10 @@ function filterPostsByCategory(selectedCategory, allPosts) {
 
 function handleCategory(event, allPosts) {
   const selectedCategory = event.target.value;
-  const renderAll = selectedCategory === "all";
+  const shouldRenderAll = selectedCategory === "all";
   const filteredPosts = filterPostsByCategory(selectedCategory, allPosts);
 
-  ui.handleFilteredPosts(filteredPosts, renderAll);
+  ui.handleFilteredPosts(filteredPosts, shouldRenderAll);
 }
 
 export function initFilterByCategory(allPosts) {
