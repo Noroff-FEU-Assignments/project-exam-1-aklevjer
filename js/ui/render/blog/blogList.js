@@ -7,10 +7,17 @@ let currentPage = 1;
 let totalPages;
 let allPosts = [];
 
-function renderPosts(posts, clearElement) {
+function updateShowMoreBtn(shouldRenderAll) {
+  const showMoreBtn = document.querySelector(".blog-posts__btn-show-more");
+  const shouldHide = !shouldRenderAll || currentPage >= totalPages;
+
+  showMoreBtn.classList.toggle("hidden", shouldHide);
+}
+
+function renderPosts(posts, shouldClearElement, shouldRenderAll) {
   const blogPostsList = document.querySelector(".blog-posts__list");
 
-  if (clearElement) {
+  if (shouldClearElement) {
     utils.clearElement(blogPostsList);
   }
 
@@ -18,6 +25,8 @@ function renderPosts(posts, clearElement) {
     const blogCard = ui.createBlogCard(post, true);
     blogPostsList.append(blogCard);
   });
+
+  updateShowMoreBtn(shouldRenderAll);
 }
 
 function getPaginatedPosts() {
@@ -27,18 +36,9 @@ function getPaginatedPosts() {
   return allPosts.slice(startIndex, endIndex);
 }
 
-function hideShowMoreBtn(shouldHide) {
-  const showMoreBtn = document.querySelector(".blog-posts__btn-show-more");
-  showMoreBtn.classList.toggle("hidden", shouldHide);
-}
-
 function showMore() {
   currentPage++;
-  renderPosts(getPaginatedPosts(), false);
-
-  if (currentPage >= totalPages) {
-    hideShowMoreBtn(true);
-  }
+  renderPosts(getPaginatedPosts(), false, true);
 }
 
 function initShowMore() {
@@ -46,11 +46,10 @@ function initShowMore() {
   showMoreBtn.addEventListener("click", showMore);
 }
 
-export function handleFilteredPosts(filteredPosts, renderAll) {
-  const postsToRender = renderAll ? getPaginatedPosts() : filteredPosts;
+export function handleFilteredPosts(filteredPosts, shouldRenderAll) {
   currentPage = 1;
-  hideShowMoreBtn(!renderAll);
-  renderPosts(postsToRender, true);
+  const postsToRender = shouldRenderAll ? getPaginatedPosts() : filteredPosts;
+  renderPosts(postsToRender, true, shouldRenderAll);
 }
 
 export function initBlogListing(blogPosts, searchQuery) {
@@ -60,7 +59,6 @@ export function initBlogListing(blogPosts, searchQuery) {
   initShowMore();
 
   if (!searchQuery) {
-    renderPosts(getPaginatedPosts(), true);
-    hideShowMoreBtn(false);
+    renderPosts(getPaginatedPosts(), true, true);
   }
 }
