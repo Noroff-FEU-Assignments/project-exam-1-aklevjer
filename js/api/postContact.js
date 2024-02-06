@@ -10,5 +10,5 @@ export async function postContactForm(contactData) {
     return await response.json();
   }
 
-  throw new Error("Failed to submit the contact form");
+  throw new Error("Failed to post the contact form");
 }
