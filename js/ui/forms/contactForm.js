@@ -6,6 +6,9 @@ async function sendContactForm(contactForm) {
   const statusLabel = document.querySelector(".status-label");
   const contactData = new FormData(contactForm);
 
+  // unit tag is needed as of Contact Form 7 v5.8.7
+  contactData.append("_wpcf7_unit_tag", "wpcf7-f81-p3-o1");
+
   try {
     await api.postContactForm(contactData);
     ui.showAlertMessage(statusLabel, "success", "Your message was sent!");
