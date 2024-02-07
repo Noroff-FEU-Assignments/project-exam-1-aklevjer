@@ -2,15 +2,18 @@ const slideGap = 16; // 1rem
 const slideMinPos = 0;
 
 let currentPos = slideMinPos;
-let slideMaxPos = 0;
-let slidesInView = 0;
+let slideMaxPos;
+let slidesInView;
 
 function updatePagination() {
-  const prevPaginationBtn = document.querySelector(".pagination-current");
-  prevPaginationBtn?.classList.remove("pagination-current");
-
   const paginationBtns = document.querySelectorAll(".carousel__pagination__btn");
-  paginationBtns[currentPos]?.classList.add("pagination-current");
+  const prevPaginationBtn = document.querySelector(".pagination-current");
+  const currentPaginationBtn = paginationBtns[currentPos];
+
+  if (prevPaginationBtn && currentPaginationBtn) {
+    prevPaginationBtn.classList.remove("pagination-current");
+    currentPaginationBtn.classList.add("pagination-current");
+  }
 }
 
 function updateCarousel() {
