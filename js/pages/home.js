@@ -10,7 +10,9 @@ export async function homePage() {
     const latestPosts = await api.fetchPosts(constants.apiParamsLatest);
 
     ui.renderCarousel(latestPosts, carouselTrack);
-    ui.initCarousel();
+
+    const carousel = new ui.Carousel();
+    carousel.init();
   } catch (error) {
     console.error(error);
     ui.showAlertMessage(carouselTrack, "error", "Oops! Failed to load latest posts. Please try again later.");
