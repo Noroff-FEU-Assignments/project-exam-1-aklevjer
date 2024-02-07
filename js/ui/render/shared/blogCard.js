@@ -6,6 +6,7 @@ const blogCardTemplate = `<a href="" class="blog-card__link">
                               <span class="blog-card__category absolute text-sm"></span>
                             </div>
                             <div class="blog-card__content flow">
+                              <h3 class="blog-card__content__title truncate-text"></h3>
                               <div class="flex items-center gap-0-5 text-sm">
                                 <i class="bx bx-calendar bx-xs"></i>
                                 <time datetime="" class="blog-card__content__time"></time>
@@ -21,13 +22,15 @@ export function createBlogCard(blogPost, isBlogPage) {
   const blogCardLink = blogCard.querySelector(".blog-card__link");
   const blogCardImage = blogCard.querySelector(".blog-card__image");
   const blogCardCategory = blogCard.querySelector(".blog-card__category");
-  const blogCardContent = blogCard.querySelector(".blog-card__content");
+  const blogCardTitle = blogCard.querySelector(".blog-card__content__title");
   const blogCardDate = blogCard.querySelector(".blog-card__content__time");
   const blogCardExcerpt = blogCard.querySelector(".blog-card__content__excerpt");
 
   // Link
   blogCardLink.href = `/pages/blog/post/?id=${blogPost.id}`;
-  isBlogPage && blogCardLink.classList.add("flex", "flex-wrap");
+  if (isBlogPage) {
+    blogCardLink.classList.add("flex", "flex-wrap");
+  }
 
   // Image
   const blogPostImage = utils.getImageFromPost(blogPost);
@@ -38,9 +41,7 @@ export function createBlogCard(blogPost, isBlogPage) {
   blogCardCategory.textContent = utils.getParsedText(blogPost._embedded["wp:term"][0][0].name);
 
   // Title
-  const blogCardTitle = utils.createHTMLElement("h3", ["blog-card__content__title", "truncate-text"]);
   blogCardTitle.textContent = utils.getParsedText(blogPost.title.rendered);
-  blogCardContent.prepend(blogCardTitle);
 
   // Date
   blogCardDate.textContent = utils.formatPostDate(blogPost.date);
