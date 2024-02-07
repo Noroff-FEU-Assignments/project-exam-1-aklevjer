@@ -28,8 +28,6 @@ function createComment(comment) {
 }
 
 function renderListOfComments(commentsList, comments) {
-  comments.sort((a, b) => new Date(a.date) - new Date(b.date));
-
   comments.forEach((comment) => {
     const commentContainer = createComment(comment);
     commentsList.append(commentContainer);
