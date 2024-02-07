@@ -37,7 +37,7 @@ function renderListOfComments(commentsList, comments) {
 }
 
 function renderEmptyCommentText(commentsList) {
-  const emptyCommentText = utils.createHTMLElement("p", null, "No comments yet");
+  const emptyCommentText = utils.createHTMLElement("p", null, "No comments yet. Be the first to comment!");
   const emptyCommentContainer = utils.createHTMLElement("li", null, null, emptyCommentText);
 
   commentsList.append(emptyCommentContainer);
