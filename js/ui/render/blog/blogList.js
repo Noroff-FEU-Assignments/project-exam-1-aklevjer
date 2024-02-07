@@ -5,7 +5,7 @@ const postsPerPage = 10;
 
 let currentPage = 1;
 let totalPages;
-let allPosts = [];
+let allPosts;
 
 function updateShowMoreBtn(shouldRenderAll) {
   const showMoreBtn = document.querySelector(".blog-posts__btn-show-more");
@@ -48,17 +48,17 @@ function initShowMore() {
 
 export function handleFilteredPosts(filteredPosts, shouldRenderAll) {
   currentPage = 1;
-  const postsToRender = shouldRenderAll ? getPaginatedPosts() : filteredPosts;
-  renderPosts(postsToRender, true, shouldRenderAll);
+  const posts = shouldRenderAll ? getPaginatedPosts() : filteredPosts;
+  renderPosts(posts, true, shouldRenderAll);
 }
 
-export function initBlogListing(blogPosts, searchQuery) {
+export function initBlogListing(blogPosts, initialSearchQuery) {
   allPosts = blogPosts;
   totalPages = Math.ceil(allPosts.length / postsPerPage);
 
   initShowMore();
 
-  if (!searchQuery) {
+  if (!initialSearchQuery) {
     renderPosts(getPaginatedPosts(), true, true);
   }
 }
