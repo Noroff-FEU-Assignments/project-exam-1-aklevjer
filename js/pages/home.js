@@ -18,7 +18,6 @@ export async function homePage() {
 
   try {
     const featuredPosts = await api.fetchPosts(constants.apiParamsFeatured);
-
     ui.renderFeaturedPost(featuredPosts[0], featuredPostContainer);
   } catch (error) {
     console.error(error);
