@@ -37,6 +37,10 @@ export function clearElement(element) {
   element.innerHTML = "";
 }
 
+export function hideElement(element, shouldHide) {
+  element.classList.toggle("hidden", shouldHide);
+}
+
 export function parseHTML(htmlString) {
   const parser = new DOMParser();
   const doc = parser.parseFromString(htmlString, "text/html");
