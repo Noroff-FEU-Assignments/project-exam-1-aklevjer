@@ -13,6 +13,7 @@ export class BlogListing {
     // DOM Elements
     this.blogPostsList = document.querySelector(".blog-posts__list");
     this.showMoreBtn = document.querySelector(".blog-posts__btn-show-more");
+    this.resultLabel = document.querySelector(".blog-posts__results-label");
     this.searchInput = document.querySelector(".search-input");
     this.categorySelect = document.querySelector(".category-select");
   }
@@ -40,6 +41,17 @@ export class BlogListing {
     }
   }
 
+  showResultLabel(results, searchQuery, shouldHide) {
+    utils.hideElement(this.resultLabel, shouldHide);
+
+    if (shouldHide) {
+      return;
+    }
+
+    const resultsCount = results.length;
+    this.resultLabel.textContent = `Found ${resultsCount} result${resultsCount !== 1 ? "s" : ""} for ‘${searchQuery}’`;
+  }
+
   handleFilteredPosts(filteredPosts, shouldRenderAll) {
     utils.hideElement(this.showMoreBtn, !shouldRenderAll);
     utils.clearElement(this.blogPostsList);
@@ -54,6 +66,7 @@ export class BlogListing {
     const shouldRenderAll = searchQuery.trim() === "";
     const filteredPosts = utils.filterPostsBySearch(searchQuery, this.allPosts);
 
+    this.showResultLabel(filteredPosts, searchQuery, shouldRenderAll);
     this.handleFilteredPosts(filteredPosts, shouldRenderAll);
   }
 
@@ -62,12 +75,15 @@ export class BlogListing {
     const shouldRenderAll = selectedCategory === "all";
     const filteredPosts = utils.filterPostsByCategory(selectedCategory, this.allPosts);
 
+    this.showResultLabel(null, null, true);
     this.handleFilteredPosts(filteredPosts, shouldRenderAll);
   }
 
   handleInitialSearch() {
     const filteredPosts = utils.filterPostsBySearch(this.searchQuery, this.allPosts);
+
     this.searchInput.value = this.searchQuery;
+    this.showResultLabel(filteredPosts, this.searchQuery, false);
     this.renderPosts(filteredPosts);
   }
 
