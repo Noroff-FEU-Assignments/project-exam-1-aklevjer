@@ -1,14 +1,16 @@
 export class Carousel {
   constructor() {
-    /* Variables */
+    // Variables
     this.slideGap = 16; // 1rem
-    this.slideMinPos = 0;
-    this.slideMaxPos = 0;
     this.slidesInView = 0;
+    this.slideMaxPos = 0;
+    this.slideMinPos = 0;
     this.currentPos = this.slideMinPos;
 
-    /* DOM Elements */
+    // DOM Elements
     this.carouselTrack = document.querySelector(".carousel__track");
+    this.carouselPrevBtn = document.querySelector(".carousel__btn-prev");
+    this.carouselNextBtn = document.querySelector(".carousel__btn-next");
     this.carouselPaginationBtns = document.querySelectorAll(".carousel__pagination__btn");
   }
 
@@ -70,11 +72,8 @@ export class Carousel {
   }
 
   initListeners() {
-    const carouselPrevBtn = document.querySelector(".carousel__btn-prev");
-    const carouselNextBtn = document.querySelector(".carousel__btn-next");
-
-    carouselPrevBtn.addEventListener("click", () => this.prevSlide());
-    carouselNextBtn.addEventListener("click", () => this.nextSlide());
+    this.carouselPrevBtn.addEventListener("click", () => this.prevSlide());
+    this.carouselNextBtn.addEventListener("click", () => this.nextSlide());
 
     this.carouselPaginationBtns.forEach((btn, i) => {
       btn.addEventListener("click", () => this.goToSlidePos(i));
