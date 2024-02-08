@@ -18,6 +18,6 @@ export function toggleInputError(inputElement, showError) {
   const errorMessage = inputContainer.querySelector(".input__error-message");
 
   inputElement.classList.toggle("input__error", !showError);
-  errorIcon.classList.toggle("hidden", showError);
-  errorMessage.classList.toggle("hidden", showError);
+  utils.hideElement(errorIcon, showError);
+  utils.hideElement(errorMessage, showError);
 }
