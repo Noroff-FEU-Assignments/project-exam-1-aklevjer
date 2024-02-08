@@ -87,6 +87,10 @@ textarea {
   background-color: inherit;
 }
 
+fieldset {
+  border: none;
+}
+
 /* -------------------------------------------- */
 /*                Global Elements               */
 /* -------------------------------------------- */

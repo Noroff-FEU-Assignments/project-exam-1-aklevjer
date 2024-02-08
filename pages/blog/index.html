@@ -62,20 +62,24 @@
         <h2 class="sr-only">Blog post list</h2>
 
         <form class="blog-posts__form flex flex-wrap justify-between gap-1">
-          <div>
+          <fieldset>
+            <legend class="sr-only">Search options</legend>
+
             <label for="search">Search for posts</label>
             <div class="relative">
               <input type="search" id="search" name="search" class="search-input card" placeholder="Enter keywords.." />
               <i class="bx bx-search-alt-2 search-input__icon absolute text-medium"></i>
             </div>
-          </div>
+          </fieldset>
 
-          <div>
+          <fieldset>
+            <legend class="sr-only">Filter options</legend>
+
             <label for="category">Filter by category</label>
             <select id="category" class="category-select card">
               <option value="all">All</option>
             </select>
-          </div>
+          </fieldset>
         </form>
 
         <ul class="blog-posts__list relative min-h-200 mb-2 grid gap-2">

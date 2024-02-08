@@ -181,7 +181,7 @@ footer {
   grid-template-columns: repeat(auto-fill, minmax(min(420px, 100%), 1fr));
 }
 
-.blog-posts__form > div {
+.blog-posts__form > fieldset {
   flex-basis: 250px;
 }
 
