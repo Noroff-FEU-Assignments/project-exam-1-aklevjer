@@ -9,9 +9,8 @@ export async function blogPage(searchQuery) {
   try {
     const allPosts = await api.fetchPosts(constants.apiParamsAll);
 
-    ui.initBlogListing(allPosts, searchQuery);
-    ui.initFilterBySearch(allPosts, searchQuery);
-    ui.initFilterByCategory(allPosts);
+    const blogListing = new ui.BlogListing(allPosts, searchQuery);
+    blogListing.init();
   } catch (error) {
     console.error(error);
     ui.showAlertMessage(blogPostsList, "error", "Oops! Failed to load posts. Please try again later.");

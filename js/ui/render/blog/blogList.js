@@ -1,64 +1,94 @@
 import * as ui from "../../index.js";
 import * as utils from "../../../utils/index.js";
 
-const postsPerPage = 10;
+export class BlogListing {
+  constructor(blogPosts, searchQuery) {
+    // Variables
+    this.postsPerPage = 10;
+    this.currentPage = 1;
+    this.totalPages = Math.ceil(blogPosts.length / this.postsPerPage);
+    this.allPosts = blogPosts;
+    this.searchQuery = searchQuery;
 
-let currentPage = 1;
-let totalPages;
-let allPosts;
-
-function updateShowMoreBtn(shouldRenderAll) {
-  const showMoreBtn = document.querySelector(".blog-posts__btn-show-more");
-  const shouldHide = !shouldRenderAll || currentPage >= totalPages;
-
-  showMoreBtn.classList.toggle("hidden", shouldHide);
-}
-
-function renderPosts(posts, shouldClearElement, shouldRenderAll) {
-  const blogPostsList = document.querySelector(".blog-posts__list");
-
-  if (shouldClearElement) {
-    utils.clearElement(blogPostsList);
+    // DOM Elements
+    this.blogPostsList = document.querySelector(".blog-posts__list");
+    this.showMoreBtn = document.querySelector(".blog-posts__btn-show-more");
+    this.searchInput = document.querySelector(".search-input");
+    this.categorySelect = document.querySelector(".category-select");
   }
 
-  posts.forEach((post) => {
-    const blogCard = ui.createBlogCard(post, true);
-    blogPostsList.append(blogCard);
-  });
+  renderPosts(posts) {
+    posts.forEach((post) => {
+      const blogCard = ui.createBlogCard(post, true);
+      this.blogPostsList.append(blogCard);
+    });
+  }
 
-  updateShowMoreBtn(shouldRenderAll);
-}
+  getPaginatedPosts() {
+    const startIndex = (this.currentPage - 1) * this.postsPerPage;
+    const endIndex = startIndex + this.postsPerPage;
 
-function getPaginatedPosts() {
-  const startIndex = (currentPage - 1) * postsPerPage;
-  const endIndex = startIndex + postsPerPage;
+    return this.allPosts.slice(startIndex, endIndex);
+  }
 
-  return allPosts.slice(startIndex, endIndex);
-}
+  showMore() {
+    this.currentPage++;
+    this.renderPosts(this.getPaginatedPosts());
 
-function showMore() {
-  currentPage++;
-  renderPosts(getPaginatedPosts(), false, true);
-}
+    if (this.currentPage >= this.totalPages) {
+      utils.hideElement(this.showMoreBtn, true);
+    }
+  }
 
-function initShowMore() {
-  const showMoreBtn = document.querySelector(".blog-posts__btn-show-more");
-  showMoreBtn.addEventListener("click", showMore);
-}
+  handleFilteredPosts(filteredPosts, shouldRenderAll) {
+    utils.hideElement(this.showMoreBtn, !shouldRenderAll);
+    utils.clearElement(this.blogPostsList);
 
-export function handleFilteredPosts(filteredPosts, shouldRenderAll) {
-  currentPage = 1;
-  const posts = shouldRenderAll ? getPaginatedPosts() : filteredPosts;
-  renderPosts(posts, true, shouldRenderAll);
-}
+    this.currentPage = 1;
+    const posts = shouldRenderAll ? this.getPaginatedPosts() : filteredPosts;
+    this.renderPosts(posts);
+  }
 
-export function initBlogListing(blogPosts, initialSearchQuery) {
-  allPosts = blogPosts;
-  totalPages = Math.ceil(allPosts.length / postsPerPage);
+  handleSearch(event) {
+    const searchQuery = event.target.value;
+    const shouldRenderAll = searchQuery.trim() === "";
+    const filteredPosts = utils.filterPostsBySearch(searchQuery, this.allPosts);
 
-  initShowMore();
+    this.handleFilteredPosts(filteredPosts, shouldRenderAll);
+  }
 
-  if (!initialSearchQuery) {
-    renderPosts(getPaginatedPosts(), true, true);
+  handleCategory(event) {
+    const selectedCategory = event.target.value;
+    const shouldRenderAll = selectedCategory === "all";
+    const filteredPosts = utils.filterPostsByCategory(selectedCategory, this.allPosts);
+
+    this.handleFilteredPosts(filteredPosts, shouldRenderAll);
+  }
+
+  handleInitialSearch() {
+    const filteredPosts = utils.filterPostsBySearch(this.searchQuery, this.allPosts);
+    this.searchInput.value = this.searchQuery;
+    this.renderPosts(filteredPosts);
+  }
+
+  initListeners() {
+    const processInput = utils.debounce((event) => this.handleSearch(event));
+
+    this.categorySelect.addEventListener("change", (event) => this.handleCategory(event));
+    this.searchInput.addEventListener("input", (event) => processInput(event));
+    this.showMoreBtn.addEventListener("click", () => this.showMore());
+  }
+
+  init() {
+    this.initListeners();
+
+    utils.clearElement(this.blogPostsList);
+
+    if (this.searchQuery) {
+      this.handleInitialSearch();
+    } else {
+      this.renderPosts(this.getPaginatedPosts());
+      utils.hideElement(this.showMoreBtn, false);
+    }
   }
 }
