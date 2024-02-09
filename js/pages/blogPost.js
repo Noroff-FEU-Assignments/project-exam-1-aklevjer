@@ -13,7 +13,7 @@ export async function blogPostPage(postId) {
     const blogPost = await api.fetchPostById(postId);
 
     const blogPostTitle = utils.getParsedText(blogPost.title.rendered);
-    utils.updatePageTitle(blogPostTitle);
+    utils.setPageTitle(`Shutter Journey - ${blogPostTitle}`);
 
     ui.renderBlogPost(blogPost, blogPostHero, blogPostArticle);
     ui.initCommentForm(postId);
