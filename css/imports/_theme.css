@@ -105,7 +105,7 @@ body {
   background-color: var(--clr-light-gray);
 }
 
-main > :not(:last-child) {
+main > * {
   margin-bottom: 5rem;
 }
 
