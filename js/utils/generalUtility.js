@@ -11,6 +11,6 @@ export function debounce(func, timeout = 300) {
   };
 }
 
-export function updatePageTitle(title) {
-  document.title += ` - ${title}`;
+export function setPageTitle(title) {
+  document.title = title;
 }
