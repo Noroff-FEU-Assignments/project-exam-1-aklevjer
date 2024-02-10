@@ -46,11 +46,9 @@ function renderModal(image) {
   const modalCloseIcon = utils.createHTMLElement("i", ["bx", "bx-x", "bx-md"]);
   const modalCloseSrText = utils.createHTMLElement("span", "sr-only", "Close");
   const modalCloseBtn = utils.createHTMLElement("button", ["modal__btn", "btn", "absolute"], null, [modalCloseIcon, modalCloseSrText]);
-
   const modal = utils.createHTMLElement("dialog", ["modal", "overflow-hidden", "rounded-corners"], null, [modalImage, modalCloseBtn]);
 
   document.body.append(modal);
-
   openModal(modal, modalCloseBtn);
 }
 
