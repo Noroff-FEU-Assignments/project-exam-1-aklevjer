@@ -4,8 +4,10 @@ import * as ui from "../ui/index.js";
 import * as utils from "../utils/index.js";
 
 export async function blogPostPage(postId) {
+  const blogPostContainer = document.querySelector(".blog-post");
+  const blogPostContent = document.querySelector(".blog-post__content");
   const blogPostHero = document.querySelector(".hero");
-  const blogPostArticle = document.querySelector(".blog-post__article");
+  const blogPostAside = document.querySelector(".blog-post__aside");
   const blogPostPopularPostsList = document.querySelector(".blog-post__popular-posts__list");
   const blogPostCommentsList = document.querySelector(".blog-post__comments__list");
 
@@ -15,12 +17,17 @@ export async function blogPostPage(postId) {
     const blogPostTitle = utils.getParsedText(blogPost.title.rendered);
     utils.setPageTitle(`Shutter Journey - ${blogPostTitle}`);
 
-    ui.renderBlogPost(blogPost, blogPostHero, blogPostArticle);
+    ui.renderBlogPost(blogPost, blogPostHero, blogPostContent);
     ui.initCommentForm(postId);
   } catch (error) {
+    blogPostHero.remove();
+    blogPostAside.remove();
+
     console.error(error);
-    ui.showAlertMessage(blogPostArticle, "error", "Oops! Failed to load blog post. Please try again later.");
-    utils.clearElement(blogPostHero);
+    ui.showAlertMessage(blogPostContent, "error", "Oops! Failed to load blog post. Please try again later.");
+    return;
+  } finally {
+    blogPostContainer.classList.replace("hidden", "flex");
   }
 
   try {

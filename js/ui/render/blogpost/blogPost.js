@@ -18,7 +18,8 @@ const blogPostTemplate = `<span class="blog-card__category rounded-corners"></sp
                             </div>
                           </div>`;
 
-export function renderBlogPost(blogPost, blogPostHero, blogPostArticle) {
+export function renderBlogPost(blogPost, blogPostHero, blogPostContent) {
+  const blogPostArticle = utils.createHTMLElement("article", ["blog-post__article", "card", "mb-2", "flow", "fluid-padding"]);
   blogPostArticle.innerHTML = blogPostTemplate;
 
   const blogPostCategory = blogPostArticle.querySelector(".blog-card__category");
@@ -59,4 +60,7 @@ export function renderBlogPost(blogPost, blogPostHero, blogPostArticle) {
 
   // Append content
   blogPostArticle.append(...parsedContent.children);
+
+  // Prepend article to DOM
+  blogPostContent.prepend(blogPostArticle);
 }
