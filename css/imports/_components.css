@@ -124,7 +124,7 @@
 /* ----------------- Carousel ----------------- */
 /* Inspiration: https://www.codingnepalweb.com/draggable-card-slider-html-css-javascript/ */
 
-.carousel__track {
+.carousel__container {
   grid-auto-flow: column;
   grid-auto-columns: 100%;
   overflow-x: auto;
@@ -133,7 +133,7 @@
   scroll-snap-type: x mandatory;
 }
 
-.carousel__track::-webkit-scrollbar {
+.carousel__container::-webkit-scrollbar {
   display: none;
 }
 
@@ -155,7 +155,6 @@
 
 .modal {
   margin: auto;
-  border: none;
 }
 
 .modal::backdrop {

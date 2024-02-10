@@ -8,7 +8,7 @@ export class Carousel {
     this.currentPos = this.slideMinPos;
 
     // DOM Elements
-    this.carouselTrack = document.querySelector(".carousel__track");
+    this.carouselContainer = document.querySelector(".carousel__container");
     this.carouselPrevBtn = document.querySelector(".carousel__btn-prev");
     this.carouselNextBtn = document.querySelector(".carousel__btn-next");
     this.carouselPaginationBtns = document.querySelectorAll(".carousel__pagination__btn");
@@ -25,8 +25,8 @@ export class Carousel {
   }
 
   updateCarousel() {
-    const slideItemWidth = this.carouselTrack.firstElementChild.offsetWidth;
-    this.carouselTrack.scrollLeft = this.currentPos * this.slidesInView * (slideItemWidth + this.slideGap);
+    const slideItemWidth = this.carouselContainer.firstElementChild.offsetWidth;
+    this.carouselContainer.scrollLeft = this.currentPos * this.slidesInView * (slideItemWidth + this.slideGap);
   }
 
   goToSlidePos(slidePos) {
@@ -52,8 +52,8 @@ export class Carousel {
 
   // Monitor the scroll event to update the current position and pagination
   monitorScroll() {
-    const slideItemWidth = this.carouselTrack.firstElementChild.offsetWidth;
-    const slideNewPosition = this.carouselTrack.scrollLeft;
+    const slideItemWidth = this.carouselContainer.firstElementChild.offsetWidth;
+    const slideNewPosition = this.carouselContainer.scrollLeft;
 
     this.currentPos = Math.round(slideNewPosition / ((slideItemWidth + this.slideGap) * this.slidesInView));
     this.updatePagination();
@@ -61,11 +61,11 @@ export class Carousel {
 
   // Monitor the resizing of the carousel to update the amount of slides in view and max position
   monitorResize() {
-    const carouselTrackWidth = this.carouselTrack.offsetWidth;
-    const slideItemWidth = this.carouselTrack.firstElementChild.offsetWidth;
-    const slidesAmount = this.carouselTrack.children.length;
+    const carouselContainerWidth = this.carouselContainer.offsetWidth;
+    const slideItemWidth = this.carouselContainer.firstElementChild.offsetWidth;
+    const slidesAmount = this.carouselContainer.children.length;
 
-    this.slidesInView = Math.round(carouselTrackWidth / slideItemWidth);
+    this.slidesInView = Math.round(carouselContainerWidth / slideItemWidth);
     this.slideMaxPos = Math.round(slidesAmount / this.slidesInView) - 1;
 
     this.goToSlidePos(this.slideMinPos);
@@ -82,9 +82,9 @@ export class Carousel {
 
   initMonitoring() {
     const resizeObserver = new ResizeObserver(() => this.monitorResize());
-    resizeObserver.observe(this.carouselTrack);
+    resizeObserver.observe(this.carouselContainer);
 
-    this.carouselTrack.addEventListener("scroll", () => this.monitorScroll());
+    this.carouselContainer.addEventListener("scroll", () => this.monitorScroll());
   }
 
   init() {
