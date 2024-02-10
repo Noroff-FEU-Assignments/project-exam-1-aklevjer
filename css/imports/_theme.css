@@ -87,7 +87,8 @@ textarea {
   background-color: inherit;
 }
 
-fieldset {
+fieldset,
+dialog {
   border: none;
 }
 
