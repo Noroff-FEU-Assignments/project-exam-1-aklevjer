@@ -13,7 +13,12 @@ export function formatPostDate(date) {
 export function filterPostsBySearch(searchQuery, posts) {
   return posts.filter((post) => {
     const parsedTitle = utils.getParsedText(post.title.rendered);
-    return parsedTitle.toLowerCase().includes(searchQuery.toLowerCase());
+    const parsedContent = utils.getParsedText(post.content.rendered);
+
+    const titleMatches = parsedTitle.toLowerCase().includes(searchQuery.toLowerCase());
+    const contentMatches = parsedContent.toLowerCase().includes(searchQuery.toLowerCase());
+
+    return titleMatches || contentMatches;
   });
 }
 
