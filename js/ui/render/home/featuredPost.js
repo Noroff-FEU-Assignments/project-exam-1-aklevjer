@@ -17,7 +17,8 @@ const featuredPostTemplate = `<img src="" alt="" class="featured-post__image rou
                                 <a href="" class="featured-post__link btn btn-dark"></a>
                               </div>`;
 
-export function renderFeaturedPost(blogPost, featuredPost) {
+export function renderFeaturedPost(blogPost, featuredPostContainer) {
+  const featuredPost = utils.createHTMLElement("article", ["featured-post__article", "grid", "place-items-center", "gap-2"]);
   featuredPost.innerHTML = featuredPostTemplate;
 
   const featuredPostImage = featuredPost.querySelector(".featured-post__image");
@@ -54,4 +55,7 @@ export function renderFeaturedPost(blogPost, featuredPost) {
   // Link
   featuredPostLink.href = `/pages/blog/post/?id=${blogPost.id}`;
   featuredPostLink.textContent = "Read now";
+
+  // Replace the placeholder container
+  featuredPostContainer.replaceWith(featuredPost);
 }
