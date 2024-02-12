@@ -9,7 +9,7 @@ function toggleAccordion(selectedBtn, accordionPanels) {
 
     const shouldExpand = accordionBtn === selectedBtn && !isExpanded;
 
-    accordionBtn.setAttribute("aria-expanded", shouldExpand ? "true" : "false");
+    accordionBtn.setAttribute("aria-expanded", shouldExpand);
 
     accordionIcon.classList.toggle("bx-plus-circle", !shouldExpand);
     accordionIcon.classList.toggle("bx-minus-circle", shouldExpand);

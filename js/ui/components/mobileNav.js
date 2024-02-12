@@ -2,7 +2,7 @@ function toggleMobileNav(burgerBtn, headerNav) {
   const burgerIcon = burgerBtn.firstElementChild;
   const isExpanded = burgerBtn.getAttribute("aria-expanded") === "true";
 
-  burgerBtn.setAttribute("aria-expanded", isExpanded ? "false" : "true");
+  burgerBtn.setAttribute("aria-expanded", !isExpanded);
 
   burgerIcon.classList.toggle("bx-menu", isExpanded);
   burgerIcon.classList.toggle("bx-x", !isExpanded);
