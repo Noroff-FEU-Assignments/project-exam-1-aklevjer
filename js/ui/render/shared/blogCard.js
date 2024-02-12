@@ -9,7 +9,7 @@ const blogCardTemplate = `<a href="" class="blog-card__link">
                               <h3 class="blog-card__content__title truncate-text"></h3>
                               <div class="flex items-center gap-0-5 text-sm">
                                 <i class="bx bx-calendar bx-xs"></i>
-                                <time datetime="" class="blog-card__content__time"></time>
+                                <time datetime="" class="blog-card__content__date"></time>
                               </div>
                               <p class="blog-card__content__excerpt truncate-text"></p>
                             </div>
@@ -23,7 +23,7 @@ export function createBlogCard(blogPost, isBlogPage) {
   const blogCardImage = blogCard.querySelector(".blog-card__image");
   const blogCardCategory = blogCard.querySelector(".blog-card__category");
   const blogCardTitle = blogCard.querySelector(".blog-card__content__title");
-  const blogCardDate = blogCard.querySelector(".blog-card__content__time");
+  const blogCardDate = blogCard.querySelector(".blog-card__content__date");
   const blogCardExcerpt = blogCard.querySelector(".blog-card__content__excerpt");
 
   // Link
