@@ -1,5 +1,5 @@
-import { router } from "./router.js";
+import * as routing from "./routing/index.js";
 import * as ui from "./ui/index.js";
 
-await router();
+await routing.router();
 ui.initMobileNav();

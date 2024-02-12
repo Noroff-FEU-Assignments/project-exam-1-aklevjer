@@ -1,4 +1,4 @@
-import * as pages from "./pages/index.js";
+import * as pages from "../pages/index.js";
 
 export async function router() {
   const url = new URL(location.href);
