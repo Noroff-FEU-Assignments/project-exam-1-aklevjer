@@ -151,16 +151,16 @@ footer {
   grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
 }
 
-.featured-post__meta {
+.featured-post__article__meta {
   --bullet-space: var(--space-0-3);
 }
 
-.featured-post__image {
+.featured-post__article__image {
   height: auto;
   max-height: 320px;
 }
 
-.featured-post__body {
+.featured-post__article__body {
   --max-lines: 3;
 }
 
