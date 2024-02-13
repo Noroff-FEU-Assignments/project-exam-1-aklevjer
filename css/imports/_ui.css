@@ -272,6 +272,11 @@ footer {
   gap: 0 var(--space-2);
 }
 
+.reach-out__image {
+  max-height: 700px;
+  margin-block: auto;
+}
+
 /* -------------- Connect With Me ------------- */
 
 .connect-with-me__content {
