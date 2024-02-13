@@ -164,6 +164,7 @@
 
 .modal__image {
   max-height: 90vh;
+  min-height: 300px;
 }
 
 .modal__btn {

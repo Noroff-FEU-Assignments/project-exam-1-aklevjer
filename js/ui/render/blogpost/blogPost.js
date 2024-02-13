@@ -56,6 +56,7 @@ export function renderBlogPost(blogPost, blogPostHero, blogPostContent) {
 
   // Modal for images
   const blogPostImages = Array.from(parsedContent.querySelectorAll("img"));
+  blogPostImages.push(heroImage);
   ui.initModal(blogPostImages);
 
   // Append content

@@ -52,6 +52,7 @@ header {
 .hero {
   height: 300px;
   color: var(--clr-white);
+  border-radius: 0;
 }
 
 .home-hero {
@@ -207,7 +208,7 @@ footer {
   font-weight: var(--fw-bold);
 }
 
-.blog-post__article__image {
+.blog-post__article img {
   max-height: 400px;
 }
 
