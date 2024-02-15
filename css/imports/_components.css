@@ -209,6 +209,7 @@
   width: 100%;
   padding: var(--space-0-5) var(--space-1);
   text-align: left;
+  color: var(--clr-black);
   border: 1px solid var(--clr-deep-black);
 }
 
