@@ -84,7 +84,6 @@ header {
 
 .home-hero__content {
   padding: var(--space-3) var(--space-1);
-  justify-self: center;
 }
 
 .home-hero__body {
