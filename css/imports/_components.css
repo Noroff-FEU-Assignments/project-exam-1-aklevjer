@@ -6,7 +6,7 @@
 
 .logo {
   max-width: 200px;
-  height: fit-content;
+  height: auto;
 }
 
 /* --------------- Search Input --------------- */
