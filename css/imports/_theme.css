@@ -108,7 +108,7 @@ body {
 
 main {
   padding-bottom: var(--space-2-5);
-  overflow: hidden;
+  overflow: clip;
 }
 
 main > * {
