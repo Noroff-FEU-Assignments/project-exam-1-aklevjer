@@ -5,9 +5,12 @@
 header {
   position: sticky;
   top: 0;
-  min-height: var(--height-header);
   background-color: var(--clr-deep-black);
   z-index: 1;
+}
+
+.header__container {
+  min-height: var(--height-header);
 }
 
 .header__nav,
