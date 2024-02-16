@@ -1,6 +1,6 @@
 import * as utils from "../../../utils/index.js";
 
-const commentTemplate = `<div class="bullet-separator flex items-center gap-0-5">
+const commentTemplate = `<div class="bullet-separator flex flex-wrap items-center gap-0-5">
                            <h3 class="blog-post__comment__author"></h3>
                            <time datetime="" class="blog-post__comment__date"></time>
                          </div>
