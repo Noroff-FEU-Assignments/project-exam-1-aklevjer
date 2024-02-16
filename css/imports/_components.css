@@ -125,7 +125,6 @@
 /* Inspiration: https://www.codingnepalweb.com/draggable-card-slider-html-css-javascript/ */
 
 .carousel__container {
-  width: 100%;
   grid-auto-flow: column;
   grid-auto-columns: 100%;
   overflow-x: auto;
