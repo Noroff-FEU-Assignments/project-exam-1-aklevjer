@@ -125,9 +125,9 @@
 /* Inspiration: https://www.codingnepalweb.com/draggable-card-slider-html-css-javascript/ */
 
 .carousel__container {
-  /* grid-auto-flow: column; */
-  /* grid-auto-columns: 100%; */
-  overflow-x: auto;
+  grid-auto-flow: column;
+  grid-auto-columns: 100%;
+  overflow: hidden;
   scroll-behavior: smooth;
   scrollbar-width: none;
   scroll-snap-type: x mandatory;
