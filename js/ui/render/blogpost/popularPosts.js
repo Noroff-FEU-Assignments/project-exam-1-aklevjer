@@ -4,7 +4,7 @@ const popularPostTemplate = `<a href="" class="blog-post__popular-post__link fle
                                <img src="" alt="" class="blog-post__popular-post__image rounded-corners" />
                                <div>
                                  <span class="blog-post__popular-post__category"></span>
-                                 <h3 class="blog-post__popular-post__title text-medium truncate-text"></h3>
+                                 <h3 class="blog-post__popular-post__title text-md truncate-text"></h3>
                                </div>
                              </a>`;
 
