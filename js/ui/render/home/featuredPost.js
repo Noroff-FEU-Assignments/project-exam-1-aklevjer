@@ -48,7 +48,7 @@ export function renderFeaturedPost(blogPost, featuredPostContainer) {
   featuredPostDate.textContent = utils.formatPostDate(blogPost.date);
   featuredPostDate.setAttribute("datetime", blogPost.date);
 
-  // Content
+  // Body
   const parsedContent = utils.parseHTML(blogPost.content.rendered);
   featuredPostBody.textContent = parsedContent.firstElementChild.textContent;
 
