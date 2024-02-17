@@ -41,7 +41,7 @@
         <div class="loading-spinner absolute rounded-full"></div>
       </div>
 
-      <div class="blog-post container hidden flex-wrap gap-2">
+      <div class="blog-post container flex-wrap gap-2 hidden">
         <div class="blog-post__content">
           <section>
             <div class="card mb-2 fluid-padding">
@@ -58,7 +58,7 @@
               <div class="relative">
                 <input type="text" id="name" name="name" placeholder="Name" />
                 <i class="bx bxs-error-circle bx-sm input__error-icon absolute text-red hidden"></i>
-                <p class="input__error-message text-sm text-red hidden">Name must be at least 5 characters</p>
+                <p class="input__error-message text-sm text-red hidden">Name must be more than 5 characters</p>
               </div>
 
               <label for="email">Email <span class="text-red">*</span></label>
@@ -72,7 +72,7 @@
               <div class="relative">
                 <textarea id="commenttext" name="commenttext" placeholder="Comment"></textarea>
                 <i class="bx bxs-error-circle bx-sm input__error-icon absolute text-red hidden"></i>
-                <p class="input__error-message text-sm text-red hidden">Comment must be at least 15 characters</p>
+                <p class="input__error-message text-sm text-red hidden">Comment must be more than 15 characters</p>
               </div>
 
               <input type="submit" value="Post comment" class="btn btn-dark" />
@@ -97,7 +97,7 @@
               <label for="search">Search for posts</label>
               <div class="blog-post__search__container relative flex gap-0-5">
                 <input type="search" id="search" name="search" class="search-input" placeholder="Enter keywords.." />
-                <i class="bx bx-search-alt-2 search-input__icon absolute text-medium"></i>
+                <i class="bx bx-search-alt-2 search-input__icon absolute text-md"></i>
                 <input type="submit" class="blog-post__search__btn btn btn-dark" value="Search" />
               </div>
             </form>

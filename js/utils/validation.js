@@ -13,12 +13,12 @@ function isLengthValid(string, length) {
 function validateInput(inputElement) {
   switch (inputElement.name) {
     case "name":
-      return isLengthValid(inputElement.value, 5);
+      return isLengthValid(inputElement.value, 6);
     case "subject":
     case "commenttext":
-      return isLengthValid(inputElement.value, 15);
+      return isLengthValid(inputElement.value, 16);
     case "message":
-      return isLengthValid(inputElement.value, 25);
+      return isLengthValid(inputElement.value, 26);
     case "email":
       return isEmailValid(inputElement.value);
     default:
