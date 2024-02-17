@@ -13,7 +13,6 @@ function toggleAccordion(selectedBtn, accordionPanels) {
 
     accordionIcon.classList.toggle("bx-plus-circle", !shouldExpand);
     accordionIcon.classList.toggle("bx-minus-circle", shouldExpand);
-
     accordionContent.classList.toggle("accordion__content-open", shouldExpand);
   });
 }

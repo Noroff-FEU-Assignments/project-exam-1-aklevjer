@@ -6,7 +6,6 @@ function toggleMobileNav(burgerBtn, headerNav) {
 
   burgerIcon.classList.toggle("bx-menu", isExpanded);
   burgerIcon.classList.toggle("bx-x", !isExpanded);
-
   headerNav.classList.toggle("header__nav-open", !isExpanded);
 }
 

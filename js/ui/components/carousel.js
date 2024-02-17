@@ -53,9 +53,9 @@ export class Carousel {
   // Monitor the scroll event to update the current position and pagination
   monitorScroll() {
     const slideItemWidth = this.carouselContainer.firstElementChild.offsetWidth;
-    const slideNewPosition = this.carouselContainer.scrollLeft;
+    const slidePosition = this.carouselContainer.scrollLeft;
 
-    this.currentPos = Math.round(slideNewPosition / ((slideItemWidth + this.slideGap) * this.slidesInView));
+    this.currentPos = Math.round(slidePosition / ((slideItemWidth + this.slideGap) * this.slidesInView));
     this.updatePagination();
   }
 
